@@ -4,7 +4,7 @@ from PIL import ImageDraw
 import random
 import decimal
 
-battery_ = "73" # start from 87
+battery_ = "73" # range from 70-87
 hour_ = "15"
 min_ = "56"
 enb_ = "612938"
@@ -16,7 +16,6 @@ speed_uplink_ = str(float(decimal.Decimal(random.randrange(60, 110))/10))
 
 image = Image.open("L8_Images/" + "PCI" + ".png")
 draw = ImageDraw.Draw(image)
-
 
 speed_test_image = Image.open("L8_Images/" + str(random.randint(1,10)) + ".png")
 L8_speed_draw = ImageDraw.Draw(speed_test_image)
@@ -482,13 +481,16 @@ qual_ = str(random.randrange(-9, -6))
 qual(qual_)
 
 # LTE Only
+sector_number = cid_[-1]
+
 if len(cid_) == 1:
     cid_ = cid_ + "   "
 
 if len(pci_) == 2:
     pci_ = pci_ + "   "
-    if len(pci_) == 1:
-        pci_ = pci_ + "      "
+
+if len(pci_) == 1:
+    pci_ = pci_ + "      "
 
 battery(battery_)
 hour(hour_)
@@ -502,5 +504,5 @@ ci(pci_)
 speed_downlink(speed_downlink_)
 speed_uplink(speed_uplink_)
 
-image.save("L8_pci_output.png")
-speed_test_image.save("L8_speed_output.png")
+image.save(f"L8_S{sector_number}.png")
+speed_test_image.save(f"L8_S{sector_number}_Speedtest.png")
