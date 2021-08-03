@@ -458,7 +458,7 @@ rssi(rssi_)
 gps_acc_ = str(random.randrange(3, 9)) + "m"
 gps_acc(gps_acc_)
 
-serving_ = str(random.randrange(15, 55))
+serving_ = str(random.randrange(10, 20))
 serving(serving_)
 
 hight_and_altitude = str(round(random.randint(200, 400)))
