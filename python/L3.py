@@ -3,6 +3,7 @@ from PIL import ImageFont
 from PIL import ImageDraw 
 import random
 import decimal
+import time
 
 battery_ = "80" # range from 70-87
 hour_ = "11"
@@ -394,7 +395,7 @@ def ci(text):
 
     return print("CI = Success")
 
-def time(text):
+def serTime(text):
     x, y = 10, 716  # object postition "command + T" in photoshop
     y -= 4
     color = (184, 184, 184)
@@ -472,7 +473,7 @@ dl_ = str(random.randrange(100, 200))
 dl(dl_)
 
 time_ = f"{hour_}:{min_}:{str(random.randrange(10, 59))}"
-time(time_)
+serTime(time_)
 
 level_ = str(random.randrange(-60, -42))
 level(level_)
@@ -505,4 +506,5 @@ speed_downlink(speed_downlink_)
 speed_uplink(speed_uplink_)
 
 image.save(f"./Output/L3_S{sector_number}.png")
+time.sleep(2)
 speed_test_image.save(f"./Output/L3_S{sector_number}_Speedtest.png")
