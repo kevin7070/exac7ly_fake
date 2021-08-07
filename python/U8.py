@@ -506,5 +506,5 @@ ci(psc_)
 speed_downlink(speed_downlink_)
 speed_uplink(speed_uplink_)
 
-image.save(f"U8_S{sector_number}.png")
-speed_test_image.save(f"U8_S{sector_number}_Speedtest.png")
+image.save(f"./Output/U8_S{sector_number}.png")
+speed_test_image.save(f"./Output/U8_S{sector_number}_Speedtest.png")

@@ -504,5 +504,5 @@ ci(pci_)
 speed_downlink(speed_downlink_)
 speed_uplink(speed_uplink_)
 
-image.save(f"L8_S{sector_number}.png")
-speed_test_image.save(f"L8_S{sector_number}_Speedtest.png")
+image.save(f"./Output/L8_S{sector_number}.png")
+speed_test_image.save(f"./Output/L8_S{sector_number}_Speedtest.png")
