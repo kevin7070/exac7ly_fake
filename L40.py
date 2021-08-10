@@ -5,12 +5,10 @@ import random
 import decimal
 import time
 
-battery_ = "73" # range from 70-87
-hour_ = "15"
-min_ = "56"
-enb_ = "612938"
-cid_ = "1"
-pci_ = "11"
+battery_ = "82" # range from 70-87
+hour_, min_ = "15", "10"
+enb_ = "601582"
+cid_, pci_ = "21", "363"
 
 speed_downlink_ = str(float(decimal.Decimal(random.randrange(850, 990))/10))
 speed_uplink_ = str(float(decimal.Decimal(random.randrange(90, 110))/10))

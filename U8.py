@@ -5,12 +5,10 @@ import random
 import decimal
 import time
 
-sector_number = "1"
 battery_ = "79" # range from 70-87
-hour_ = "13"
-min_ = "39"
-cid_ = "42033"
-psc_ = "563"
+hour_, min_ = "15", "19"
+sector_number = "1"
+cid_, psc_ = "15827", "226"
 
 speed_downlink_ = str(float(decimal.Decimal(random.randrange(50, 80))/10))
 speed_uplink_ = str(float(decimal.Decimal(random.randrange(1, 30))/10))
@@ -180,53 +178,7 @@ def rsrp(text):
 
     return print("RSRP = Success")
 
-# def rsrq(text):
-#     x, y = 342, 331  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
 
-#     bg_color = (40, 40, 40)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("RSRQ = Success")
-
-# def snr(text):
-#     x, y = 552, 331  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (40, 40, 40)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("SNR = Success")
-
-# def rssi(text):
-#     x, y = 991, 331  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (40, 40, 40)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("RSSI = Success")
 
 def gps_acc(text):
     x, y = 988, 429  # object position "command + T" in photoshop
@@ -276,37 +228,6 @@ def altitude(text):
 
     return print("Altitude = Success")
 
-# def ul(text):
-#     x, y = 268, 526  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (40, 40, 40)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("UL = Success")
-
-# def dl(text):
-#     x, y = 768, 526  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (40, 40, 40)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("DL = Success")
 
 def serving(text):
     x, y = 592, 623  # object position "command + T" in photoshop
@@ -427,21 +348,6 @@ def level(text):
 
     return print("Time = Success")
 
-# def qual(text):
-#     x, y = 777, 716  # object postition "command + T" in photoshop
-#     y -= 4
-#     color = (184, 184, 184)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
-
-#     bg_color = (16, 16, 16)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("Time = Success")
 
 # ramdom
 rnc_ = str(random.randrange(1, 9))
@@ -449,15 +355,6 @@ rnc(rnc_)
 
 rsrp_ = str(random.randrange(-68, -50))
 rsrp(rsrp_)
-
-# rsrq_ = str(random.randrange(-11, -5))
-# rsrq(rsrq_)
-
-# snr_ = str(round(random.randrange(201, 294)*0.1, 2))
-# snr(snr_)
-
-# rssi_ = str(random.randrange(-69, -61))
-# rssi(rssi_)
 
 gps_acc_ = str(random.randrange(3, 9)) + "m"
 gps_acc(gps_acc_)
@@ -469,23 +366,14 @@ hight_and_altitude = str(round(random.randint(200, 400)))
 hight(hight_and_altitude)
 altitude(hight_and_altitude)
 
-# ul_ = str(random.randrange(3, 9))
-# ul(ul_)
-
-# dl_ = str(random.randrange(100, 200))
-# dl(dl_)
-
 time_ = f"{hour_}:{min_}:{str(random.randrange(10, 59))}"
 serTime(time_)
 
 level_ = str(random.randrange(-60, -42))
 level(level_)
 
-# qual_ = str(random.randrange(-9, -6))
-# qual(qual_)
 
 # LTE Only
-
 if len(cid_) == 1:
     cid_ = cid_ + "   "
 

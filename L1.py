@@ -6,11 +6,9 @@ import decimal
 import time
 
 battery_ = "80" # range from 70-87
-hour_ = "11"
-min_ = "30"
+hour_, min_ = "11", "30"
 enb_ = "601111"
-cid_ = "3"
-pci_ = "1"
+cid_, pci_ = "3", "1"
 
 speed_downlink_ = str(float(decimal.Decimal(random.randrange(300, 400))/10))
 speed_uplink_ = str(float(decimal.Decimal(random.randrange(200, 230))/10))
@@ -228,85 +226,6 @@ def rssi(text):
 
     return print("RSSI = Success")
 
-# def gps_acc(text):
-#     x, y = 988, 429  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (72, 72, 72)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("GPS Acc = Success")
-
-# def hight(text):
-#     x, y = 130, 478  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (72, 72, 72)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("Hight = Success")
-
-# def altitude(text):
-#     x, y = 561, 478  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (72, 72, 72)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("Altitude = Success")
-
-# def ul(text):
-#     x, y = 268, 526  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (40, 40, 40)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("UL = Success")
-
-# def dl(text):
-#     x, y = 768, 526  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (40, 40, 40)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("DL = Success")
 
 def serving(text):
     x, y = 592, 623  # object position "command + T" in photoshop
@@ -324,43 +243,6 @@ def serving(text):
 
     return print("UL = Success")
 
-# def longitude(text):
-#     x, y = 271, 380  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (72, 72, 72)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("longitude = Success")
-# longitude_prefix = "114.25"
-# longitude_last_two_numbers = random.randrange(10, 99, 3)
-# longitude(longitude_prefix + str(longitude_last_two_numbers))
-
-# def latitude(text):
-#     x, y = 784, 380  # object position "command + T" in photoshop
-#     y -= 8
-#     color = (255, 255, 255)
-#     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-#     bg_color = (72, 72, 72)
-#     w, h = font.getsize(text)
-#     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-#     draw.text(
-#         (x, y), text, color, font=font
-#     )
-
-#     return print("latitude = Success")
-# latitude_prefix = "22.323"
-# latitude_last_two_numbers = random.randrange(10, 99, 3)
-# latitude(latitude_prefix + str(latitude_last_two_numbers))
 
 def cellid(text):
     x, y = 327, 716  # object postition "command + T" in photoshop
@@ -456,21 +338,8 @@ snr(snr_)
 rssi_ = str(random.randrange(-69, -61))
 rssi(rssi_)
 
-# gps_acc_ = str(random.randrange(3, 9)) + "m"
-# gps_acc(gps_acc_)
-
 serving_ = str(random.randrange(10, 20))
 serving(serving_)
-
-# hight_and_altitude = str(round(random.randint(200, 400)))
-# hight(hight_and_altitude)
-# altitude(hight_and_altitude)
-
-# ul_ = str(random.randrange(3, 9))
-# ul(ul_)
-
-# dl_ = str(random.randrange(100, 200))
-# dl(dl_)
 
 time_ = f"{hour_}:{min_}:{str(random.randrange(10, 59))}"
 serTime(time_)
