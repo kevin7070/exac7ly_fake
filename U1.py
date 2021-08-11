@@ -1,25 +1,25 @@
-
-from PIL import Image
-from PIL import ImageFont
-from PIL import ImageDraw 
-import random
 import decimal
+import random
 import time
 
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 
-battery_ = "80" # range from 70-87
+battery_ = "80"  # range from 70-87
 hour_, min_ = "15", "17"
 sector_number = "1"
 cid_, psc_ = "45821", "226"
 
-speed_downlink_ = str(float(decimal.Decimal(random.randrange(50, 80))/10))
-speed_uplink_ = str(float(decimal.Decimal(random.randrange(3, 50))/10))
+speed_downlink_ = str(float(decimal.Decimal(random.randrange(50, 80)) / 10))
+speed_uplink_ = str(float(decimal.Decimal(random.randrange(3, 50)) / 10))
 
 image = Image.open("U1_Images/" + "PSC" + ".png")
 draw = ImageDraw.Draw(image)
 
-speed_test_image = Image.open("U1_Images/" + str(random.randint(1,10)) + ".png")
-L8_speed_draw = ImageDraw.Draw(speed_test_image)
+speed_test_image = Image.open("U1_Images/" + str(random.randint(1, 10)) + ".png")
+speed_test_draw = ImageDraw.Draw(speed_test_image)
+
 
 def speed_uplink(text):
     x, y = 624, 230  # object position "command + T" in photoshop
@@ -30,12 +30,13 @@ def speed_uplink(text):
     bg_color = (26, 27, 46)
     w, h = font.getsize(text)
 
-    L8_speed_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-    L8_speed_draw.text(
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
         (x, y), text, color, font=font
     )
 
     return print("speed_uplink = Success")
+
 
 def speed_downlink(text):
     x, y = 341, 230  # object position "command + T" in photoshop
@@ -46,12 +47,13 @@ def speed_downlink(text):
     bg_color = (26, 27, 46)
     w, h = font.getsize(text)
 
-    L8_speed_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-    L8_speed_draw.text(
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
         (x, y), text, color, font=font
     )
 
     return print("speed_downlink = Success")
+
 
 def battery(text):
     x, y = 808, 22  # object position "command + T" in photoshop
@@ -67,12 +69,13 @@ def battery(text):
         (x, y), text, color, font=font
     )
 
-    L8_speed_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-    L8_speed_draw.text(
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
         (x, y), text, color, font=font
     )
 
     return print("Battery = Success")
+
 
 def hour(text):
     x, y = 929, 21  # object position "command + T" in photoshop
@@ -88,12 +91,13 @@ def hour(text):
         (x, y), text, color, font=font
     )
 
-    L8_speed_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-    L8_speed_draw.text(
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
         (x, y), text, color, font=font
     )
 
     return print("Hour = Success")
+
 
 def min(text):
     x, y = 986, 21  # object position "command + T" in photoshop
@@ -109,12 +113,13 @@ def min(text):
         (x, y), text, color, font=font
     )
 
-    L8_speed_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-    L8_speed_draw.text(
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
         (x, y), text, color, font=font
     )
 
     return print("Min = Success")
+
 
 def rnc(text):
     x, y = 95, 282  # object position "command + T" in photoshop
@@ -132,6 +137,7 @@ def rnc(text):
 
     return print("RNC = Success")
 
+
 def cid(text):
     x, y = 274, 282  # object position "command + T" in photoshop
     y -= 8
@@ -148,6 +154,7 @@ def cid(text):
 
     return print("CID = Success")
 
+
 def psc(text):
     x, y = 533, 282  # object position "command + T" in photoshop
     y -= 8
@@ -163,6 +170,7 @@ def psc(text):
     )
 
     return print("PCI = Success")
+
 
 def rsrp(text):
     x, y = 112, 331  # object position "command + T" in photoshop
@@ -197,6 +205,7 @@ def gps_acc(text):
 
     return print("GPS Acc = Success")
 
+
 def hight(text):
     x, y = 130, 478  # object position "command + T" in photoshop
     y -= 8
@@ -212,6 +221,7 @@ def hight(text):
     )
 
     return print("Hight = Success")
+
 
 def altitude(text):
     x, y = 561, 478  # object position "command + T" in photoshop
@@ -229,6 +239,7 @@ def altitude(text):
 
     return print("Altitude = Success")
 
+
 def ul(text):
     x, y = 254, 526  # object position "command + T" in photoshop
     y -= 8
@@ -244,6 +255,7 @@ def ul(text):
     )
 
     return print("UL = Success")
+
 
 def dl(text):
     x, y = 781, 526  # object position "command + T" in photoshop
@@ -261,9 +273,10 @@ def dl(text):
 
     return print("DL = Success")
 
+
 def serving(text):
     x, y = 592, 623  # object position "command + T" in photoshop
-    y -=7
+    y -= 7
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 31)
 
@@ -276,6 +289,7 @@ def serving(text):
     )
 
     return print("UL = Success")
+
 
 def longitude(text):
     x, y = 345, 380  # object position "command + T" in photoshop
@@ -292,9 +306,12 @@ def longitude(text):
     )
 
     return print("longitude = Success")
+
+
 longitude_prefix = "114.25"
 longitude_last_two_numbers = random.randrange(10, 99, 3)
 longitude(longitude_prefix + str(longitude_last_two_numbers))
+
 
 def latitude(text):
     x, y = 857, 380  # object position "command + T" in photoshop
@@ -311,9 +328,12 @@ def latitude(text):
     )
 
     return print("latitude = Success")
+
+
 latitude_prefix = "22.323"
 latitude_last_two_numbers = random.randrange(10, 99, 3)
 latitude(latitude_prefix + str(latitude_last_two_numbers))
+
 
 def cellid(text):
     x, y = 327, 716  # object postition "command + T" in photoshop
@@ -348,6 +368,7 @@ def ci(text):
 
     return print("CI = Success")
 
+
 def serTime(text):
     x, y = 10, 716  # object postition "command + T" in photoshop
     y -= 4
@@ -363,6 +384,7 @@ def serTime(text):
     )
 
     return print("Time = Success")
+
 
 def level(text):
     x, y = 665, 716  # object postition "command + T" in photoshop
@@ -425,7 +447,7 @@ battery(battery_)
 hour(hour_)
 min(min_)
 cid(cid_)
-cellid_ = cid_ +"-"+ rnc_
+cellid_ = cid_ + "-" + rnc_
 cellid(cellid_)
 psc(psc_)
 ci(psc_)
