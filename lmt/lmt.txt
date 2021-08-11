@@ -1,0 +1,90 @@
++++    600698        2021-08-11 14:20:01
+O&M    #808452238
+%%LST CELL:;%%
+RETCODE = 0  Operation succeeded.
+
+Display static parameters of cells
+----------------------------------
+Local Cell ID  Cell Name  Csg indicator  Uplink cyclic prefix length  Downlink cyclic prefix length  NB-IoT Cell Flag  Coverage Level Type                                          Frequency band  Uplink EARFCN indication  Uplink EARFCN  Downlink EARFCN  Uplink bandwidth  Downlink bandwidth  Cell ID  Physical cell ID  Additional spectrum emission  Cell active state  Cell admin state  Cell Blocking Duration(min)  Cell FDD TDD indication  Subframe assignment  Special subframe patterns  SSP6 DwPTS Mode  Cell Standby Mode  Cell specific offset(dB)  Frequency offset(dB)  Root sequence index  High speed flag      Preamble format  Cell radius(m)  Customized bandwidth configure indicator  Customized uplink bandwidth(0.1MHz)  Customized downlink bandwidth(0.1MHz)  Ue max power allowed configure indicator  Max transmit power allowed(dBm)  Flag of Multi-RRU Cell  Mode of Multi-RRU Cell  CPRI Ethernet Compression Ratio  CPRI Compression  Physical Cell Number of SFN Cell  CRS Port Number  Cell transmission and reception mode  CRS Antenna Port Mapping  User label  Work mode            CN Operator Sharing Group ID  Intra Frequency RAN Sharing Indication  IntraFreq ANR Indication  Cell Radius Start Location(m)  Specified Cell Flag  Downlink Punctured RB Number  SFN Master Cell Label  Multi Cell Share Mode  Standby Cell SFN Recovery Time(h)  Compact Bandwidth Control Interference Mode  Uplink Punctured RB Number Offset  Ultra High-Speed Cell Root Sequence Index
+
+0              10006981   False          Normal                       Normal                         FALSE             NULL                                                         3               Not configure             NULL           1751             10M               10M                 1        43                1                             Active             Unblock           NULL                         FDD                      NULL                 NULL                       NULL             Active             0dB                       0dB                   72                   Low speed cell flag  0                10000           Not configure                             NULL                                 NULL                                   Not configure                             NULL                             False                   NULL                    NULL                             No Compression    NULL                              2 ports          2T2R                                  NULL                      NULL        Uplink and downlink  255                           True                                    ALLOWED                   0                              Common Cell          NULL                          NULL                   NORMAL                 NULL                               NULL                                         NULL                               NULL                                     
+1              10006982   False          Normal                       Normal                         FALSE             NULL                                                         3               Not configure             NULL           1751             10M               10M                 2        42                1                             Active             Unblock           NULL                         FDD                      NULL                 NULL                       NULL             Active             0dB                       0dB                   288                  Low speed cell flag  0                10000           Not configure                             NULL                                 NULL                                   Not configure                             NULL                             False                   NULL                    NULL                             No Compression    NULL                              2 ports          2T2R                                  NULL                      NULL        Uplink and downlink  255                           True                                    ALLOWED                   0                              Common Cell          NULL                          NULL                   NORMAL                 NULL                               NULL                                         NULL                               NULL                                     
+60             30006981   False          Normal                       Normal                         FALSE             NULL                                                         8               Not configure             NULL           3575             5M                5M                  61       43                1                             Active             Unblock           NULL                         FDD                      NULL                 NULL                       NULL             Active             0dB                       0dB                   72                   Low speed cell flag  0                10000           Not configure                             NULL                                 NULL                                   Not configure                             NULL                             False                   NULL                    NULL                             No Compression    NULL                              2 ports          2T2R                                  NULL                      NULL        Uplink and downlink  255                           True                                    ALLOWED                   0                              Common Cell          NULL                          NULL                   NORMAL                 NULL                               NULL                                         NULL                               NULL                                     
+61             30006982   False          Normal                       Normal                         FALSE             NULL                                                         8               Not configure             NULL           3575             5M                5M                  62       42                1                             Active             Unblock           NULL                         FDD                      NULL                 NULL                       NULL             Active             0dB                       0dB                   288                  Low speed cell flag  0                10000           Not configure                             NULL                                 NULL                                   Not configure                             NULL                             False                   NULL                    NULL                             No Compression    NULL                              2 ports          2T2R                                  NULL                      NULL        Uplink and downlink  255                           True                                    ALLOWED                   0                              Common Cell          NULL                          NULL                   NORMAL                 NULL                               NULL                                         NULL                               NULL                                     
+100            60006981   False          Normal                       Normal                         TRUE              COVERAGE_LEVEL_0:On&COVERAGE_LEVEL_1:On&COVERAGE_LEVEL_2:On  NULL            NULL                      NULL           NULL             NULL              NULL                101      43                1                             Active             Unblock           NULL                         FDD                      NULL                 NULL                       NULL             Active             0dB                       0dB                   NULL                 Low speed cell flag  NULL             NULL            Not configure                             NULL                                 NULL                                   Not configure                             NULL                             False                   NULL                    NULL                             No Compression    NULL                              2 ports          2T2R                                  NULL                      NULL        Uplink and downlink  255                           True                                    ALLOWED                   0                              Common Cell          NULL                          NULL                   NORMAL                 NULL                               NULL                                         NULL                               NULL                                     
+101            60006982   False          Normal                       Normal                         TRUE              COVERAGE_LEVEL_0:On&COVERAGE_LEVEL_1:On&COVERAGE_LEVEL_2:On  NULL            NULL                      NULL           NULL             NULL              NULL                102      42                1                             Active             Unblock           NULL                         FDD                      NULL                 NULL                       NULL             Active             0dB                       0dB                   NULL                 Low speed cell flag  NULL             NULL            Not configure                             NULL                                 NULL                                   Not configure                             NULL                             False                   NULL                    NULL                             No Compression    NULL                              2 ports          2T2R                                  NULL                      NULL        Uplink and downlink  255                           True                                    ALLOWED                   0                              Common Cell          NULL                          NULL                   NORMAL                 NULL                               NULL                                         NULL                               NULL                                     
+(Number of results = 6)
+
+
+---    END
+
+
+
++++    600698        2021-08-11 14:22:45
+O&M    #537919499
+%%LST ULOCELL: MODE=ALLLOCALCELL;%%
+RETCODE = 0  Operation succeeded.
+
+List Local Cell Configuration
+-----------------------------
+Local Cell ID  Local Cell Type  Cell Scale Indication  Cell ID  Cell Name  UL Baseband Equipment ID  DL Baseband Equipment ID  Local Cell Radius(m)  Local Cell Inner Handover Radius(m)  Two Tx Way  Reserved Cell  UL Frequency Indicator
+
+36981          NORMAL_CELL      Macro Cell             36981    NULL       14                        14                        10000                 0                                    FALSE       FALSE          TRUE                  
+36982          NORMAL_CELL      Macro Cell             36982    NULL       14                        14                        10000                 0                                    FALSE       FALSE          TRUE                  
+(Number of results = 2)
+
+
+---    END
+
+
+
++++    600698        2021-08-11 14:22:57
+O&M    #9595
+%%DSP VSWR:;%%
+RETCODE = 0  Operation succeeded.
+
+Dsp VSWR Test Result
+--------------------
+Cabinet No.  Subrack No.  Slot No.  TX Channel No.  RF Port  VSWR(0.01)  Vswr Test Time
+
+0            4            0         0               NULL     119         NULL          
+0            4            0         1               NULL     110         NULL          
+0            4            2         0               NULL     121         NULL          
+0            4            2         1               NULL     117         NULL          
+0            90           0         0               NULL     NULL        NULL          
+0            90           0         1               NULL     NULL        NULL          
+0            90           0         2               NULL     NULL        NULL          
+0            90           0         3               NULL     NULL        NULL          
+0            110          0         1               NULL     114         NULL          
+0            110          0         2               NULL     110         NULL          
+0            110          0         3               NULL     110         NULL          
+0            110          0         4               NULL     110         NULL          
+0            110          0         5               NULL     110         NULL          
+0            110          0         6               NULL     110         NULL          
+0            110          0         7               NULL     110         NULL          
+0            110          0         8               NULL     111         NULL          
+0            111          0         1               NULL     110         NULL          
+0            111          0         2               NULL     114         NULL          
+0            111          0         3               NULL     110         NULL          
+0            111          0         4               NULL     110         NULL          
+0            111          0         5               NULL     110         NULL          
+0            111          0         6               NULL     110         NULL          
+0            111          0         7               NULL     110         NULL          
+0            111          0         8               NULL     113         NULL          
+0            112          0         1               NULL     110         NULL          
+0            112          0         2               NULL     110         NULL          
+0            112          0         3               NULL     110         NULL          
+0            112          0         4               NULL     111         NULL          
+0            112          0         5               NULL     110         NULL          
+0            112          0         6               NULL     112         NULL          
+0            112          0         7               NULL     110         NULL          
+0            112          0         8               NULL     111         NULL          
+1            4            0         0               NULL     125         NULL          
+1            4            0         1               NULL     117         NULL          
+1            4            2         0               NULL     115         NULL          
+1            4            2         1               NULL     145         NULL          
+(Number of results = 36)
+
+
+---    END
+
