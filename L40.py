@@ -17,7 +17,8 @@ speed_uplink_ = str(float(decimal.Decimal(random.randrange(90, 110)) / 10))
 image = Image.open("L40_Images/" + "PCI" + ".png")
 draw = ImageDraw.Draw(image)
 
-speed_test_image = Image.open("L40_Images/" + str(random.randint(1, 10)) + ".png")
+speed_test_image = Image.open(
+    "L40_Images/" + str(random.randint(1, 10)) + ".png")
 speed_test_draw = ImageDraw.Draw(speed_test_image)
 
 
