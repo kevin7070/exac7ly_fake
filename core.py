@@ -1,5 +1,5 @@
 import random
-import datetime
+# import datetime
 
 from PIL import Image
 from PIL import ImageDraw
@@ -13,7 +13,9 @@ import functions.L1 as L1
 
 battery = str(random.randrange(80, 87))
 default_hour = int(random.randrange(15, 19))
-default_minute = int('{time_.minute}'.format(time_=datetime.datetime.now()))   
+default_minute = int(random.randrange(10, 59))
+default_second = int(random.randrange(10, 59))
+hms = f"{default_hour}:{default_minute}:{default_second}"
 
 # collect site number for eNB
 enb = str(input(f"請輸入Site No.:"))
@@ -28,7 +30,7 @@ bands = {'L1', 'L3', 'L8', 'L40', 'U1', 'U8'}
 band = "default"
 while band not in bands:
     band = str(input(
-"""你想做邊個 Band？
+        """你想做邊個 Band？
 L1  = LTE2100
 L3  = LTE1800
 L8  = LTE900
@@ -57,7 +59,7 @@ todo_list = []
 for i in range(0, sector_number):
     collect_cid = str(input(f"請順輸入第 {i+1} 個 CID："))
     collect_pci_psc = str(input(f"請順輸入第 {i+1} 個 PCI/PSC："))
-    default_minute = default_minute + int(random.randrange(1,3))
+    default_minute = default_minute + int(random.randrange(1, 3))
 
     if default_minute >= 60:
         default_hour = default_hour + 1
@@ -70,7 +72,7 @@ for i in range(0, sector_number):
         enb,
         collect_cid,
         collect_pci_psc
-        ])
+    ])
 
 """
 todo_list contains belows
@@ -81,7 +83,7 @@ e - enb
 c - cid
 p - pci/psc
 """
-for (b,h,m,e,c,p) in todo_list:
+for (b, h, m, e, c, p) in todo_list:
     image = Image.open(f"{band}_Images/" + "PCI" + ".png")
     draw = ImageDraw.Draw(image)
 
@@ -98,7 +100,7 @@ for (b,h,m,e,c,p) in todo_list:
     L1.serving_(draw)
     L1.cellid_(e, draw)
     L1.ci_(p, draw)
-    L1.serTime_(draw)
+    L1.serTime_(hms, draw)
     L1.level_(draw)
     L1.qual_(draw)
 

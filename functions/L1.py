@@ -203,8 +203,7 @@ def ci_(text, draw):
     )
 
 
-def serTime_(draw):
-    text = str(random.randrange(10, 20))
+def serTime_(text, draw):
     x, y = 10, 716
     y -= 4
     color = (184, 184, 184)
