@@ -57,8 +57,8 @@ todo_list contains belows
 """
 todo_list = []
 for i in range(0, sector_number):
-    collect_cid = str(input(f"請順輸入第 {i+1} 個 CID："))
-    collect_pci_psc = str(input(f"請順輸入第 {i+1} 個 PCI/PSC："))
+    collect_cid = str(input(f"請輸入Sector {i+1} CID："))
+    collect_pci_psc = str(input(f"請輸入第 {i+1} PCI/PSC："))
     default_minute = default_minute + int(random.randrange(1, 3))
 
     if default_minute >= 60:
