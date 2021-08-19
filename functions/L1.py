@@ -127,7 +127,7 @@ def rsrq_(draw):
 
 def snr_(draw):
     text = str(round(random.randrange(201, 294) * 0.1, 2))
-    x, y = 552, 331  # object position "command + T" in photoshop
+    x, y = 552, 331
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -143,7 +143,7 @@ def snr_(draw):
 
 def rssi_(draw):
     text = str(random.randrange(-69, -61))
-    x, y = 991, 331  # object position "command + T" in photoshop
+    x, y = 991, 331
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -221,7 +221,7 @@ def serTime_(draw):
 
 def level_(draw):
     text = str(random.randrange(-60, -42))
-    x, y = 665, 716
+    x, y = 666, 716
     y -= 4
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
@@ -237,7 +237,7 @@ def level_(draw):
 
 def qual_(draw):
     text = str(random.randrange(-9, -6))
-    x, y = 777, 716  # object postition "command + T" in photoshop
+    x, y = 777, 716
     y -= 4
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)

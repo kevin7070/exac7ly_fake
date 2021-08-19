@@ -57,14 +57,16 @@ todo_list = []
 for i in range(0, sector_number):
     collect_cid = str(input(f"請順輸入第 {i+1} 個 CID："))
     collect_pci_psc = str(input(f"請順輸入第 {i+1} 個 PCI/PSC："))
-    default_minute += int(random.randrange(1,3))
+    default_minute = default_minute + int(random.randrange(1,3))
+
     if default_minute >= 60:
-        default_hour +=1
-        default_minute -=60
+        default_hour = default_hour + 1
+        default_minute = default_minute - 60
+
     todo_list.append([
-        battery,
-        default_hour,
-        default_minute,
+        str(battery),
+        str(default_hour),
+        str(default_minute),
         enb,
         collect_cid,
         collect_pci_psc
@@ -94,11 +96,11 @@ for (b,h,m,e,c,p) in todo_list:
     L1.snr_(draw)
     L1.rssi_(draw)
     L1.serving_(draw)
-    L1.cellid_(p, draw)
-    L1.ci_(e, draw)
+    L1.cellid_(e, draw)
+    L1.ci_(p, draw)
     L1.serTime_(draw)
     L1.level_(draw)
     L1.qual_(draw)
 
-    default_seconds = str(random.randrange(10, 59))  
-    image.save(f"./Output/{band}-{b}-{c}-{default_seconds}.png")
+    default_seconds = str(random.randrange(10, 59))
+    image.save(f"./Output/{band}-{h}-{m}-{default_seconds}.png")
