@@ -28,7 +28,7 @@ bands = {'L1', 'L3', 'L8', 'L40', 'U1', 'U8'}
 # collect band
 band = "default"
 while band not in bands:
-    band = str(input(
+    band = str.upper(input(
         """你想做邊個 Band？
 L1  = LTE2100
 L3  = LTE1800
