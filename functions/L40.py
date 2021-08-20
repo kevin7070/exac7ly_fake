@@ -97,7 +97,7 @@ def enb_(text, draw):
 
 
 def cid_(text, draw):
-    x, y = 329, 282
+    x, y = 332, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -144,7 +144,7 @@ def rsrp_(draw):
 
 def rsrq_(draw):
     text = str(random.randrange(-11, -5))
-    x, y = 343, 331
+    x, y = 342, 331
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
