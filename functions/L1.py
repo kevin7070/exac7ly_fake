@@ -195,7 +195,7 @@ def ci_(text, draw):
 
     bg_color = (16, 16, 16)
     w, h = font.getsize(text)
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    draw.rectangle((x - 25, y - 2, x + w + 10, y + h - 2), fill=bg_color)
 
     draw.text(
         (x, y), text, color, anchor="mt", font=font

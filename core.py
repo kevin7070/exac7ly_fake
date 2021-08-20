@@ -11,12 +11,6 @@ import functions.L1 as L1
 # import functions.U1 as U1
 # import functions.U8 as U8
 
-battery = str(random.randrange(80, 87))
-default_hour = int(random.randrange(15, 19))
-default_minute = int(random.randrange(10, 59))
-default_second = int(random.randrange(10, 59))
-hms = f"{default_hour}:{default_minute}:{default_second}"
-
 # collect site number for eNB
 enb = str(input(f"請輸入Site No.:"))
 if len(enb) > 3:
@@ -47,52 +41,51 @@ sector_number = int(input(f"有幾多個 {band} Sector？"))
 
 todo_list = []
 for i in range(0, sector_number):
-    collect_cid = str(input(f"請輸入Sector {i+1} CID："))
-    collect_pci_psc = str(input(f"請輸入第 {i+1} PCI/PSC："))
-    default_minute = default_minute + int(random.randrange(1, 3))
+    battery = str(random.randrange(80, 87))
+    d_hour = int(random.randrange(15, 19))
+    d_minute = int(random.randrange(10, 59))
+    d_second = int(random.randrange(10, 59))
+    hms = f"{d_hour}:{d_minute}:{d_second}"
 
-    if default_minute >= 60:
-        default_hour = default_hour + 1
-        default_minute = default_minute - 60
+    input_cid = str(input(f"請輸入Sector {i+1} CID："))
+    input_pci_psc = str(input(f"請輸入第 {i+1} PCI/PSC："))
+
+    d_minute = d_minute + int(random.randrange(1, 3))
+    if d_minute >= 60:
+        d_hour = d_hour + 1
+        d_minute = d_minute - 60
 
     todo_list.append([
         str(battery),
-        str(default_hour),
-        str(default_minute),
+        str(d_hour),
+        str(d_minute),
+        str(d_second),
+        str(hms),
         enb,
-        collect_cid,
-        collect_pci_psc
+        input_cid,
+        input_pci_psc
     ])
 
-"""
-todo_list contains belows
-b - battery
-h - default_hour
-m - default_minute
-e - enb
-c - cid
-p - pci/psc
-"""
-for (b, h, m, e, c, p) in todo_list:
+for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
     image = Image.open(f"{band}_Images/" + "PCI" + ".png")
     draw = ImageDraw.Draw(image)
 
-    L1.battery_(b, draw)
-    L1.hour_(h, draw)
-    L1.min_(m, draw)
-    L1.enb_(e, draw)
-    L1.cid_(c, draw)
-    L1.pci_(p, draw)
+    L1.battery_(battery, draw)
+    L1.hour_(hour, draw)
+    L1.min_(minute, draw)
+    L1.enb_(enb, draw)
+    L1.cid_(cid, draw)
+    L1.pci_(pci_psc, draw)
     L1.rsrp_(draw)
     L1.rsrq_(draw)
     L1.snr_(draw)
     L1.rssi_(draw)
     L1.serving_(draw)
-    L1.cellid_(e, draw)
-    L1.ci_(p, draw)
+    L1.cellid_(enb, draw)
+    L1.ci_(pci_psc, draw)
     L1.serTime_(hms, draw)
     L1.level_(draw)
     L1.qual_(draw)
 
     default_seconds = str(random.randrange(10, 59))
-    image.save(f"./Output/{band}-{h}-{m}-{default_seconds}.png")
+    image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
