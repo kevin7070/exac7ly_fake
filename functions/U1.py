@@ -296,7 +296,7 @@ def ci_(text, draw):
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
 
-    bg_color = (255, 255, 16)
+    bg_color = (16, 16, 16)
     w, h = font.getsize(text)
     draw.rectangle((x - 20, y - 2, x + w + 5, y + h - 2), fill=bg_color)
 
