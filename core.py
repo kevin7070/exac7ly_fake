@@ -1,5 +1,4 @@
 import random
-# import datetime
 
 from PIL import Image
 from PIL import ImageDraw
@@ -8,7 +7,7 @@ import functions.L1 as L1
 import functions.L3 as L3
 import functions.L8 as L8
 import functions.L40 as L40
-# import functions.U1 as U1
+import functions.U1 as U1
 # import functions.U8 as U8
 
 d_hour = int(random.randrange(15, 19))
@@ -63,7 +62,7 @@ for i in range(0, sector_number):
         input_cid = str(input(f"請輸入Sector {i+1} CID："))
         continue
     while input_pci_psc == "":
-        input_pci_psc = str(input(f"請輸入Sector {i+1} PCI/PSC："))
+        input_pci_psc = str(input(f"請輸入S{i+1} PCI或PSC："))
         continue
 
     d_minute = d_minute + int(random.randrange(1, 3))
@@ -114,7 +113,8 @@ if band == "L1":
         L1.speed_downlink_(speed_test_draw)
         L1.speed_uplink_(speed_test_draw)
 
-        speed_test_image.save(f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+        speed_test_image.save(
+            f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
 
 elif band == "L3":
     for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
@@ -136,7 +136,6 @@ elif band == "L3":
         L3.serTime_(hms, draw)
         L3.level_(draw)
         L3.qual_(draw)
-
         L3.gps_acc_(draw)
         L3.hight_(draw)
         L3.altitude_(draw)
@@ -156,7 +155,8 @@ elif band == "L3":
         L3.speed_downlink_(speed_test_draw)
         L3.speed_uplink_(speed_test_draw)
 
-        speed_test_image.save(f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+        speed_test_image.save(
+            f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
 
 elif band == "L40":
     for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
@@ -178,7 +178,6 @@ elif band == "L40":
         L40.serTime_(hms, draw)
         L40.level_(draw)
         L40.qual_(draw)
-
         L40.gps_acc_(draw)
         L40.hight_(draw)
         L40.altitude_(draw)
@@ -198,7 +197,8 @@ elif band == "L40":
         L40.speed_downlink_(speed_test_draw)
         L40.speed_uplink_(speed_test_draw)
 
-        speed_test_image.save(f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+        speed_test_image.save(
+            f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
 
 elif band == "L8":
     for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
@@ -220,7 +220,6 @@ elif band == "L8":
         L8.serTime_(hms, draw)
         L8.level_(draw)
         L8.qual_(draw)
-
         L8.gps_acc_(draw)
         L8.hight_(draw)
         L8.altitude_(draw)
@@ -240,4 +239,44 @@ elif band == "L8":
         L8.speed_downlink_(speed_test_draw)
         L8.speed_uplink_(speed_test_draw)
 
-        speed_test_image.save(f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+        speed_test_image.save(
+            f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+
+elif band == "U1":
+    for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
+        image = Image.open(f"{band}_Images/" + "PSC" + ".png")
+        draw = ImageDraw.Draw(image)
+        U1.battery_(battery, draw)
+        U1.hour_(hour, draw)
+        U1.min_(minute, draw)
+        U1.cid_(cid, draw)
+        U1.psc_(pci_psc, draw)
+        U1.rsrp_(draw)
+        U1.gps_acc_(draw)
+        U1.hight_(draw)
+        U1.altitude_(draw)
+        U1.ul_(draw)
+        U1.dl_(draw)
+        U1.serving_(draw)
+        U1.longitude_(draw)
+        U1.latitude_(draw)
+        U1.cellid_(enb, draw)
+        U1.ci_(pci_psc, draw)
+        U1.serTime_(hms, draw)
+        U1.rnc_(draw)
+        U1.level_(draw)
+
+        image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
+
+        speed_test_image = Image.open(
+            f"{band}_Images/" + str(random.randint(1, 10)) + ".png")
+        speed_test_draw = ImageDraw.Draw(speed_test_image)
+        U1.battery_(battery, speed_test_draw)
+        U1.hour_(hour, speed_test_draw)
+        U1.min_(minute, speed_test_draw)
+        U1.speed_downlink_(speed_test_draw)
+        U1.speed_uplink_(speed_test_draw)
+
+        speed_test_image.save(
+            f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+
