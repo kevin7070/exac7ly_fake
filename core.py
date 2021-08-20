@@ -6,7 +6,7 @@ from PIL import ImageDraw
 
 import functions.L1 as L1
 import functions.L3 as L3
-# import functions.L8 as L8
+import functions.L8 as L8
 import functions.L40 as L40
 # import functions.U1 as U1
 # import functions.U8 as U8
@@ -197,5 +197,47 @@ elif band == "L40":
         L40.min_(minute, speed_test_draw)
         L40.speed_downlink_(speed_test_draw)
         L40.speed_uplink_(speed_test_draw)
+
+        speed_test_image.save(f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+
+elif band == "L8":
+    for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
+        image = Image.open(f"{band}_Images/" + "PCI" + ".png")
+        draw = ImageDraw.Draw(image)
+        L8.battery_(battery, draw)
+        L8.hour_(hour, draw)
+        L8.min_(minute, draw)
+        L8.enb_(enb, draw)
+        L8.cid_(cid, draw)
+        L8.pci_(pci_psc, draw)
+        L8.rsrp_(draw)
+        L8.rsrq_(draw)
+        L8.snr_(draw)
+        L8.rssi_(draw)
+        L8.serving_(draw)
+        L8.cellid_(enb, draw)
+        L8.ci_(pci_psc, draw)
+        L8.serTime_(hms, draw)
+        L8.level_(draw)
+        L8.qual_(draw)
+
+        L8.gps_acc_(draw)
+        L8.hight_(draw)
+        L8.altitude_(draw)
+        L8.ul_(draw)
+        L8.dl_(draw)
+        L8.longitude_(draw)
+        L8.latitude_(draw)
+
+        image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
+
+        speed_test_image = Image.open(
+            f"{band}_Images/" + str(random.randint(1, 10)) + ".png")
+        speed_test_draw = ImageDraw.Draw(speed_test_image)
+        L8.battery_(battery, speed_test_draw)
+        L8.hour_(hour, speed_test_draw)
+        L8.min_(minute, speed_test_draw)
+        L8.speed_downlink_(speed_test_draw)
+        L8.speed_uplink_(speed_test_draw)
 
         speed_test_image.save(f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
