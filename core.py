@@ -45,16 +45,6 @@ U8  = UMTS900
 # number of sectors
 sector_number = int(input(f"有幾多個 {band} Sector？"))
 
-
-"""
-todo_list contains belows
-- battery
-- default_hour
-- default_minute
-- enb
-- cid
-- pci/psc
-"""
 todo_list = []
 for i in range(0, sector_number):
     collect_cid = str(input(f"請輸入Sector {i+1} CID："))

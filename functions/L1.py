@@ -189,18 +189,18 @@ def cellid_(text, draw):
 
 
 def ci_(text, draw):
-    x, y = 453, 716
-    y -= 4
+    x, y = 471, 716
     color = (184, 184, 184)
-    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 23)
 
     bg_color = (16, 16, 16)
     w, h = font.getsize(text)
     draw.rectangle((x, y, x + w, y + h), fill=bg_color)
 
     draw.text(
-        (x, y), text, color, font=font
+        (x, y), text, color, anchor="mt", font=font
     )
+
 
 
 def serTime_(text, draw):
