@@ -8,7 +8,7 @@ import functions.L3 as L3
 import functions.L8 as L8
 import functions.L40 as L40
 import functions.U1 as U1
-# import functions.U8 as U8
+import functions.U8 as U8
 
 d_hour = int(random.randrange(15, 19))
 d_minute = int(random.randrange(10, 59))
@@ -280,3 +280,38 @@ elif band == "U1":
         speed_test_image.save(
             f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
 
+elif band == "U8":
+    for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
+        image = Image.open(f"images/{band}_Images/" + "PSC" + ".png")
+        draw = ImageDraw.Draw(image)
+        U8.battery_(battery, draw)
+        U8.hour_(hour, draw)
+        U8.min_(minute, draw)
+        U8.cid_(cid, draw)
+        U8.psc_(pci_psc, draw)
+        U8.rsrp_(draw)
+        U8.gps_acc_(draw)
+        U8.hight_(draw)
+        U8.altitude_(draw)
+        U8.serving_(draw)
+        U8.longitude_(draw)
+        U8.latitude_(draw)
+        U8.cellid_(enb, draw)
+        U8.ci_(pci_psc, draw)
+        U8.serTime_(hms, draw)
+        U8.rnc_(draw)
+        U8.level_(draw)
+
+        image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
+
+        speed_test_image = Image.open(
+            f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
+        speed_test_draw = ImageDraw.Draw(speed_test_image)
+        U8.battery_(battery, speed_test_draw)
+        U8.hour_(hour, speed_test_draw)
+        U8.min_(minute, speed_test_draw)
+        U8.speed_downlink_(speed_test_draw)
+        U8.speed_uplink_(speed_test_draw)
+
+        speed_test_image.save(
+            f"./Output/{band}-{hour}-{minute}-{second}-CT.png")

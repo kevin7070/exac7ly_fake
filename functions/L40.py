@@ -14,7 +14,7 @@ def speed_uplink_(draw):
     bg_color = (26, 27, 46)
     w, h = font.getsize(text)
 
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    draw.rectangle((x - 5, y - 5, x + w + 5, y + h + 5), fill=bg_color)
     draw.text(
         (x, y), text, color, font=font
     )
@@ -30,7 +30,7 @@ def speed_downlink_(draw):
     bg_color = (26, 27, 46)
     w, h = font.getsize(text)
 
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    draw.rectangle((x - 5, y - 5, x + w + 5, y + h + 5), fill=bg_color)
     draw.text(
         (x, y), text, color, font=font
     )

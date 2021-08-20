@@ -4,22 +4,6 @@ import decimal
 from PIL import ImageFont
 
 
-def speed_downlink_(draw):
-    text = str(float(decimal.Decimal(random.randrange(300, 400)) / 10))
-    x, y = 341, 230
-    y -= 2
-    color = (255, 255, 255)
-    font = ImageFont.truetype('font/Gauge-Mono-Regular.ttf', 120)
-
-    bg_color = (26, 27, 46)
-    w, h = font.getsize(text)
-
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-    draw.text(
-        (x, y), text, color, font=font
-    )
-
-
 def speed_uplink_(draw):
     text = str(float(decimal.Decimal(random.randrange(200, 230)) / 10))
     x, y = 624, 230
@@ -30,7 +14,23 @@ def speed_uplink_(draw):
     bg_color = (26, 27, 46)
     w, h = font.getsize(text)
 
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    draw.rectangle((x - 5, y - 5, x + w + 5, y + h + 5), fill=bg_color)
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+
+def speed_downlink_(draw):
+    text = str(float(decimal.Decimal(random.randrange(300, 400)) / 10))
+    x, y = 341, 232
+    y -= 2
+    color = (255, 255, 255)
+    font = ImageFont.truetype('font/Gauge-Mono-Regular.ttf', 120)
+
+    bg_color = (26, 27, 46)
+    w, h = font.getsize(text)
+
+    draw.rectangle((x - 5, y - 5, x + w + 5, y + h + 5), fill=bg_color)
     draw.text(
         (x, y), text, color, font=font
     )
