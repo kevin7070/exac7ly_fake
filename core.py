@@ -83,7 +83,7 @@ for i in range(0, sector_number):
 
 if band == "L1":
     for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
-        image = Image.open(f"{band}_Images/" + "PCI" + ".png")
+        image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
         draw = ImageDraw.Draw(image)
         L1.battery_(battery, draw)
         L1.hour_(hour, draw)
@@ -105,7 +105,7 @@ if band == "L1":
         image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
 
         speed_test_image = Image.open(
-            f"{band}_Images/" + str(random.randint(1, 10)) + ".png")
+            f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
         speed_test_draw = ImageDraw.Draw(speed_test_image)
         L1.battery_(battery, speed_test_draw)
         L1.hour_(hour, speed_test_draw)
@@ -118,7 +118,7 @@ if band == "L1":
 
 elif band == "L3":
     for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
-        image = Image.open(f"{band}_Images/" + "PCI" + ".png")
+        image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
         draw = ImageDraw.Draw(image)
         L3.battery_(battery, draw)
         L3.hour_(hour, draw)
@@ -147,7 +147,7 @@ elif band == "L3":
         image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
 
         speed_test_image = Image.open(
-            f"{band}_Images/" + str(random.randint(1, 10)) + ".png")
+            f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
         speed_test_draw = ImageDraw.Draw(speed_test_image)
         L3.battery_(battery, speed_test_draw)
         L3.hour_(hour, speed_test_draw)
@@ -160,7 +160,7 @@ elif band == "L3":
 
 elif band == "L40":
     for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
-        image = Image.open(f"{band}_Images/" + "PCI" + ".png")
+        image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
         draw = ImageDraw.Draw(image)
         L40.battery_(battery, draw)
         L40.hour_(hour, draw)
@@ -189,7 +189,7 @@ elif band == "L40":
         image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
 
         speed_test_image = Image.open(
-            f"{band}_Images/" + str(random.randint(1, 10)) + ".png")
+            f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
         speed_test_draw = ImageDraw.Draw(speed_test_image)
         L40.battery_(battery, speed_test_draw)
         L40.hour_(hour, speed_test_draw)
@@ -202,7 +202,7 @@ elif band == "L40":
 
 elif band == "L8":
     for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
-        image = Image.open(f"{band}_Images/" + "PCI" + ".png")
+        image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
         draw = ImageDraw.Draw(image)
         L8.battery_(battery, draw)
         L8.hour_(hour, draw)
@@ -231,7 +231,7 @@ elif band == "L8":
         image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
 
         speed_test_image = Image.open(
-            f"{band}_Images/" + str(random.randint(1, 10)) + ".png")
+            f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
         speed_test_draw = ImageDraw.Draw(speed_test_image)
         L8.battery_(battery, speed_test_draw)
         L8.hour_(hour, speed_test_draw)
@@ -244,7 +244,7 @@ elif band == "L8":
 
 elif band == "U1":
     for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
-        image = Image.open(f"{band}_Images/" + "PSC" + ".png")
+        image = Image.open(f"images/{band}_Images/" + "PSC" + ".png")
         draw = ImageDraw.Draw(image)
         U1.battery_(battery, draw)
         U1.hour_(hour, draw)
@@ -269,7 +269,7 @@ elif band == "U1":
         image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
 
         speed_test_image = Image.open(
-            f"{band}_Images/" + str(random.randint(1, 10)) + ".png")
+            f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
         speed_test_draw = ImageDraw.Draw(speed_test_image)
         U1.battery_(battery, speed_test_draw)
         U1.hour_(hour, speed_test_draw)
