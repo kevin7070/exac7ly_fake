@@ -23,7 +23,7 @@ speed_test_draw = ImageDraw.Draw(speed_test_image)
 
 
 def speed_uplink(text):
-    x, y = 624, 230  # object position "command + T" in photoshop
+    x, y = 624, 230
     y -= 2
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Gauge-Mono-Regular.ttf', 120)
@@ -40,7 +40,7 @@ def speed_uplink(text):
 
 
 def speed_downlink(text):
-    x, y = 341, 230  # object position "command + T" in photoshop
+    x, y = 341, 230
     y -= 2
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Gauge-Mono-Regular.ttf', 120)
@@ -57,7 +57,7 @@ def speed_downlink(text):
 
 
 def battery(text):
-    x, y = 808, 22  # object position "command + T" in photoshop
+    x, y = 808, 22
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 40)
@@ -79,7 +79,7 @@ def battery(text):
 
 
 def hour(text):
-    x, y = 929, 21  # object position "command + T" in photoshop
+    x, y = 929, 21
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 42)
@@ -101,7 +101,7 @@ def hour(text):
 
 
 def min(text):
-    x, y = 986, 21  # object position "command + T" in photoshop
+    x, y = 986, 21
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 42)
@@ -123,7 +123,7 @@ def min(text):
 
 
 def rnc(text):
-    x, y = 95, 282  # object position "command + T" in photoshop
+    x, y = 95, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -140,7 +140,7 @@ def rnc(text):
 
 
 def cid(text):
-    x, y = 274, 282  # object position "command + T" in photoshop
+    x, y = 274, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -157,7 +157,7 @@ def cid(text):
 
 
 def psc(text):
-    x, y = 533, 282  # object position "command + T" in photoshop
+    x, y = 533, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -174,7 +174,7 @@ def psc(text):
 
 
 def rsrp(text):
-    x, y = 112, 331  # object position "command + T" in photoshop
+    x, y = 112, 331
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -191,7 +191,7 @@ def rsrp(text):
 
 
 def gps_acc(text):
-    x, y = 988, 429  # object position "command + T" in photoshop
+    x, y = 988, 429
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -208,7 +208,7 @@ def gps_acc(text):
 
 
 def hight(text):
-    x, y = 130, 478  # object position "command + T" in photoshop
+    x, y = 130, 478
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -225,7 +225,7 @@ def hight(text):
 
 
 def altitude(text):
-    x, y = 561, 478  # object position "command + T" in photoshop
+    x, y = 561, 478
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -242,7 +242,7 @@ def altitude(text):
 
 
 def ul(text):
-    x, y = 254, 526  # object position "command + T" in photoshop
+    x, y = 254, 526
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -259,7 +259,7 @@ def ul(text):
 
 
 def dl(text):
-    x, y = 781, 526  # object position "command + T" in photoshop
+    x, y = 781, 526
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -276,7 +276,7 @@ def dl(text):
 
 
 def serving(text):
-    x, y = 592, 623  # object position "command + T" in photoshop
+    x, y = 592, 623
     y -= 7
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 31)
@@ -293,7 +293,7 @@ def serving(text):
 
 
 def longitude(text):
-    x, y = 345, 380  # object position "command + T" in photoshop
+    x, y = 345, 380
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -315,7 +315,7 @@ longitude(longitude_prefix + str(longitude_last_two_numbers))
 
 
 def latitude(text):
-    x, y = 857, 380  # object position "command + T" in photoshop
+    x, y = 857, 380
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)

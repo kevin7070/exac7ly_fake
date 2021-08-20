@@ -23,7 +23,7 @@ speed_test_draw = ImageDraw.Draw(speed_test_image)
 
 
 def speed_uplink(text):
-    x, y = 624, 230  # object position "command + T" in photoshop
+    x, y = 624, 230
     y -= 2
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Gauge-Mono-Regular.ttf', 120)
@@ -40,7 +40,7 @@ def speed_uplink(text):
 
 
 def speed_downlink(text):
-    x, y = 341, 230  # object position "command + T" in photoshop
+    x, y = 341, 230
     y -= 2
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Gauge-Mono-Regular.ttf', 120)
@@ -57,7 +57,7 @@ def speed_downlink(text):
 
 
 def battery(text):
-    x, y = 808, 22  # object position "command + T" in photoshop
+    x, y = 808, 22
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 40)
@@ -79,7 +79,7 @@ def battery(text):
 
 
 def hour(text):
-    x, y = 929, 21  # object position "command + T" in photoshop
+    x, y = 929, 21
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 42)
@@ -101,7 +101,7 @@ def hour(text):
 
 
 def min(text):
-    x, y = 986, 21  # object position "command + T" in photoshop
+    x, y = 986, 21
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 42)
@@ -123,7 +123,7 @@ def min(text):
 
 
 def enb(text):
-    x, y = 91, 282  # object position "command + T" in photoshop
+    x, y = 91, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -140,7 +140,7 @@ def enb(text):
 
 
 def cid(text):
-    x, y = 332, 282  # object position "command + T" in photoshop
+    x, y = 332, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -157,7 +157,7 @@ def cid(text):
 
 
 def pci(text):
-    x, y = 475, 282  # object position "command + T" in photoshop
+    x, y = 475, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -174,7 +174,7 @@ def pci(text):
 
 
 def rsrp(text):
-    x, y = 112, 331  # object position "command + T" in photoshop
+    x, y = 112, 331
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -191,7 +191,7 @@ def rsrp(text):
 
 
 def rsrq(text):
-    x, y = 342, 331  # object position "command + T" in photoshop
+    x, y = 342, 331
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -208,7 +208,7 @@ def rsrq(text):
 
 
 def snr(text):
-    x, y = 552, 331  # object position "command + T" in photoshop
+    x, y = 552, 331
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -225,7 +225,7 @@ def snr(text):
 
 
 def rssi(text):
-    x, y = 991, 331  # object position "command + T" in photoshop
+    x, y = 991, 331
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -242,7 +242,7 @@ def rssi(text):
 
 
 def serving(text):
-    x, y = 592, 623  # object position "command + T" in photoshop
+    x, y = 592, 623
     y -= 7
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 31)

@@ -82,7 +82,7 @@ def min_(text, draw):
 
 
 def enb_(text, draw):
-    x, y = 91, 282  # object position "command + T" in photoshop
+    x, y = 91, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -112,7 +112,7 @@ def cid_(text, draw):
 
 
 def pci_(text, draw):
-    x, y = 475, 282  # object position "command + T" in photoshop
+    x, y = 475, 282
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
