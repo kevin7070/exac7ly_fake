@@ -11,6 +11,9 @@ import functions.L1 as L1
 # import functions.U1 as U1
 # import functions.U8 as U8
 
+d_hour = int(random.randrange(15, 19))
+d_minute = int(random.randrange(10, 59))
+
 # collect site number for eNB
 enb = str(input(f"請輸入Site No.:"))
 if len(enb) > 3:
@@ -42,8 +45,6 @@ sector_number = int(input(f"有幾多個 {band} Sector？"))
 todo_list = []
 for i in range(0, sector_number):
     battery = str(random.randrange(80, 87))
-    d_hour = int(random.randrange(15, 19))
-    d_minute = int(random.randrange(10, 59))
     d_second = int(random.randrange(10, 59))
     hms = f"{d_hour}:{d_minute}:{d_second}"
 
@@ -69,7 +70,6 @@ for i in range(0, sector_number):
 for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
     image = Image.open(f"{band}_Images/" + "PCI" + ".png")
     draw = ImageDraw.Draw(image)
-
     L1.battery_(battery, draw)
     L1.hour_(hour, draw)
     L1.min_(minute, draw)
@@ -86,6 +86,16 @@ for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
     L1.serTime_(hms, draw)
     L1.level_(draw)
     L1.qual_(draw)
-
-    default_seconds = str(random.randrange(10, 59))
     image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
+
+
+    speed_test_image = Image.open(
+        f"{band}_Images/" + str(random.randint(1, 10)) + ".png")
+    speed_test_draw = ImageDraw.Draw(speed_test_image)
+    L1.battery_(battery, speed_test_draw)
+    L1.hour_(hour, speed_test_draw)
+    L1.min_(minute, speed_test_draw)
+    L1.speed_downlink_(speed_test_draw)
+    L1.speed_uplink_(speed_test_draw)
+    speed_test_image.save(f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+
