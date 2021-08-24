@@ -41,8 +41,12 @@ def tas_(hour, minute, second, draw):
     sit_new = sit_default_ - \
         datetime.timedelta(hours=0, minutes=0, seconds=random.randint(28, 82))
     session_idle_timeout_ = "Session Idle Timeout: 0" + str(sit_new)
-    ne_time_ = 'NE Time: {dt.year}-{dt.month}-{dt.day} {dt.hour}:{dt.minute}:{dt.second}'.format(
-        dt=datetime.datetime.now())
+
+    days = random.randrange(10, 30)
+    default_date = datetime.datetime.now() - datetime.timedelta(days=days)
+    default_ne_time_ = 'NE Time: {dt.year}-{dt.month}-{dt.day} '.format(
+        dt=default_date)
+    ne_time_ = default_ne_time_ + f"{hour}:{minute}:{second}"
 
     text = ne_time_ + "  " + session_lifetime_ + "  " + session_idle_timeout_
 

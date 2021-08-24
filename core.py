@@ -327,7 +327,6 @@ while True:
         break
 
 # Alarm
-print("Alarms⋯⋯")
 image = Image.open("lmt/alarm/default.png")
 draw = ImageDraw.Draw(image)
 
@@ -340,5 +339,5 @@ guln = ''.join(str(i) for i in guln_list)
 
 A.enb_(enb, draw)
 A.guln_(guln, draw)
-# A.tas_(hour, minute, second, draw)
+A.tas_(hour, minute, second, draw)
 image.save("Output/Alarm.png")
