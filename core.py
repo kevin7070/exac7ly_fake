@@ -9,6 +9,7 @@ import functions.L8 as L8
 import functions.L40 as L40
 import functions.U1 as U1
 import functions.U8 as U8
+import functions.Alarm as A
 
 d_hour = int(random.randrange(15, 19))
 d_minute = int(random.randrange(10, 59))
@@ -23,9 +24,12 @@ if len(site_number) == 3:
 else:
     enb = "60" + site_number
 
+# emtpy band list todo
+band_list = []
+
 while True:
     # bands pool
-    bands = {'L1', 'L3', 'L8', 'L40', 'U1', 'U8'}
+    bands = ['L1', 'L3', 'L8', 'L40', 'U1', 'U8']
     # collect band
     band = "default"
     while band not in bands:
@@ -42,6 +46,8 @@ while True:
         ))
         continue
 
+    # add band list
+    band_list.append(band)
 
     # number of sectors
     sector_number = ""
@@ -319,3 +325,20 @@ while True:
 
     if input(f"S{site_number}，仲有其他Band要做？(Y/N)\n：").strip().upper() != 'Y':
         break
+
+# Alarm
+print("Alarms⋯⋯")
+image = Image.open("lmt/alarm/default.png")
+draw = ImageDraw.Draw(image)
+
+guln_list = ['N']
+if ("L1" or "L3" or "L8" or "L40") in band_list:
+    guln_list.insert(0, "L")
+if ("U1" or "U8") in band_list:
+    guln_list.insert(0, "U")
+guln = ''.join(str(i) for i in guln_list)
+
+A.enb_(enb, draw)
+A.guln_(guln, draw)
+# A.tas_(hour, minute, second, draw)
+image.save("Output/Alarm.png")
