@@ -1,12 +1,28 @@
-import random
 import decimal
+import random
+import time
 
+from PIL import Image
+from PIL import ImageDraw
 from PIL import ImageFont
 
+battery_ = "80"  # range from 70-87
+hour_, min_ = "11", "30"
+enb_ = "601111"
+cid_, pci_ = "3", "1"
 
-def speed_uplink_(draw):
-    text = str(float(decimal.Decimal(random.randrange(3, 50)) / 10))
-    x, y = 624, 230
+speed_downlink_ = str(float(decimal.Decimal(random.randrange(300, 400)) / 10))
+speed_uplink_ = str(float(decimal.Decimal(random.randrange(200, 230)) / 10))
+
+image = Image.open("L1_Images/" + "PCI" + ".png")
+draw = ImageDraw.Draw(image)
+
+speed_test_image = Image.open("L1_Images/" + str(random.randint(1, 10)) + ".png")
+speed_test_draw = ImageDraw.Draw(speed_test_image)
+
+
+def speed_uplink(text):
+    x, y = 624, 230  # object position "command + T" in photoshop
     y -= 2
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Gauge-Mono-Regular.ttf', 120)
@@ -14,15 +30,16 @@ def speed_uplink_(draw):
     bg_color = (26, 27, 46)
     w, h = font.getsize(text)
 
-    draw.rectangle((x - 5, y - 5, x + w + 5, y + h + 5), fill=bg_color)
-    draw.text(
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
         (x, y), text, color, font=font
     )
 
+    return print("speed_uplink = Success")
 
-def speed_downlink_(draw):
-    text = str(float(decimal.Decimal(random.randrange(50, 80)) / 10))
-    x, y = 341, 230
+
+def speed_downlink(text):
+    x, y = 341, 230  # object position "command + T" in photoshop
     y -= 2
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Gauge-Mono-Regular.ttf', 120)
@@ -30,14 +47,16 @@ def speed_downlink_(draw):
     bg_color = (26, 27, 46)
     w, h = font.getsize(text)
 
-    draw.rectangle((x - 5, y - 5, x + w + 5, y + h + 5), fill=bg_color)
-    draw.text(
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
         (x, y), text, color, font=font
     )
 
+    return print("speed_downlink = Success")
 
-def battery_(text, draw):
-    x, y = 808, 22
+
+def battery(text):
+    x, y = 808, 22  # object position "command + T" in photoshop
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 40)
@@ -50,9 +69,16 @@ def battery_(text, draw):
         (x, y), text, color, font=font
     )
 
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
+        (x, y), text, color, font=font
+    )
 
-def hour_(text, draw):
-    x, y = 929, 21
+    return print("Battery = Success")
+
+
+def hour(text):
+    x, y = 929, 21  # object position "command + T" in photoshop
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 42)
@@ -65,9 +91,16 @@ def hour_(text, draw):
         (x, y), text, color, font=font
     )
 
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
+        (x, y), text, color, font=font
+    )
 
-def min_(text, draw):
-    x, y = 986, 21
+    return print("Hour = Success")
+
+
+def min(text):
+    x, y = 986, 21  # object position "command + T" in photoshop
     y -= 9
     color = (204, 204, 204)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 42)
@@ -80,10 +113,16 @@ def min_(text, draw):
         (x, y), text, color, font=font
     )
 
+    speed_test_draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    speed_test_draw.text(
+        (x, y), text, color, font=font
+    )
 
-def rnc_(draw):
-    text = str(random.randrange(1, 9))
-    x, y = 95, 282
+    return print("Min = Success")
+
+
+def enb(text):
+    x, y = 91, 282  # object position "command + T" in photoshop
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -96,9 +135,11 @@ def rnc_(draw):
         (x, y), text, color, font=font
     )
 
+    return print("eNB = Success")
 
-def cid_(text, draw):
-    x, y = 274, 282
+
+def cid(text):
+    x, y = 332, 282  # object position "command + T" in photoshop
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -111,9 +152,11 @@ def cid_(text, draw):
         (x, y), text, color, font=font
     )
 
+    return print("CID = Success")
 
-def psc_(text, draw):
-    x, y = 533, 282
+
+def pci(text):
+    x, y = 475, 282  # object position "command + T" in photoshop
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -126,10 +169,11 @@ def psc_(text, draw):
         (x, y), text, color, font=font
     )
 
+    return print("PCI = Success")
 
-def rsrp_(draw):
-    text = str(random.randrange(-68, -50))
-    x, y = 112, 331
+
+def rsrp(text):
+    x, y = 112, 331  # object position "command + T" in photoshop
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -142,58 +186,11 @@ def rsrp_(draw):
         (x, y), text, color, font=font
     )
 
-
-def gps_acc_(draw):
-    text = str(random.randrange(3, 9)) + "m"
-    x, y = 988, 429
-    y -= 8
-    color = (255, 255, 255)
-    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-    bg_color = (72, 72, 72)
-    w, h = font.getsize(text)
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-    draw.text(
-        (x, y), text, color, font=font
-    )
+    return print("RSRP = Success")
 
 
-def hight_(draw):
-    text = str(round(random.randint(20, 40)))
-    x, y = 130, 478
-    y -= 8
-    color = (255, 255, 255)
-    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-    bg_color = (72, 72, 72)
-    w, h = font.getsize(text)
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-    draw.text(
-        (x, y), text, color, font=font
-    )
-
-
-def altitude_(draw):
-    text = str(round(random.randint(20, 40)))
-    x, y = 561, 478
-    y -= 8
-    color = (255, 255, 255)
-    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-    bg_color = (72, 72, 72)
-    w, h = font.getsize(text)
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-    draw.text(
-        (x, y), text, color, font=font
-    )
-
-
-def ul_(draw):
-    text = str(random.randrange(10, 20))
-    x, y = 254, 526
+def rsrq(text):
+    x, y = 342, 331  # object position "command + T" in photoshop
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -206,10 +203,11 @@ def ul_(draw):
         (x, y), text, color, font=font
     )
 
+    return print("RSRQ = Success")
 
-def dl_(draw):
-    text = str(random.randrange(10, 20))
-    x, y = 781, 526
+
+def snr(text):
+    x, y = 552, 331  # object position "command + T" in photoshop
     y -= 8
     color = (255, 255, 255)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
@@ -222,10 +220,28 @@ def dl_(draw):
         (x, y), text, color, font=font
     )
 
+    return print("SNR = Success")
 
-def serving_(draw):
-    text = str(random.randrange(10, 20))+"s"
-    x, y = 592, 623
+
+def rssi(text):
+    x, y = 991, 331  # object position "command + T" in photoshop
+    y -= 8
+    color = (255, 255, 255)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
+
+    bg_color = (40, 40, 40)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    return print("RSSI = Success")
+
+
+def serving(text):
+    x, y = 592, 623  # object position "command + T" in photoshop
     y -= 7
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 31)
@@ -238,46 +254,11 @@ def serving_(draw):
         (x, y), text, color, font=font
     )
 
-
-def longitude_(draw):
-    longitude_prefix = "114.25"
-    longitude_last_two_numbers = random.randrange(10, 99, 3)
-    text = longitude_prefix + str(longitude_last_two_numbers)
-    x, y = 345, 380
-    y -= 8
-    color = (255, 255, 255)
-    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-    bg_color = (72, 72, 72)
-    w, h = font.getsize(text)
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-    draw.text(
-        (x, y), text, color, font=font
-    )
+    return print("UL = Success")
 
 
-def latitude_(draw):
-    latitude_prefix = "22.323"
-    latitude_last_two_numbers = random.randrange(10, 99, 3)
-    text = latitude_prefix + str(latitude_last_two_numbers)
-    x, y = 857, 380
-    y -= 8
-    color = (255, 255, 255)
-    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 36)
-
-    bg_color = (72, 72, 72)
-    w, h = font.getsize(text)
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
-
-    draw.text(
-        (x, y), text, color, font=font
-    )
-
-
-def cellid_(text, draw):
-    text = text + "-" + str(random.randrange(1, 9))
-    x, y = 320, 716
+def cellid(text):
+    x, y = 327, 716  # object postition "command + T" in photoshop
     y -= 4
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
@@ -290,23 +271,11 @@ def cellid_(text, draw):
         (x, y), text, color, font=font
     )
 
-
-def ci_(text, draw):
-    x, y = 473, 716
-    color = (184, 184, 184)
-    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
-
-    bg_color = (16, 16, 16)
-    w, h = font.getsize(text)
-    draw.rectangle((x - 20, y - 2, x + w + 5, y + h - 2), fill=bg_color)
-
-    draw.text(
-        (x, y), text, color, anchor="mt", font=font
-    )
+    return print("CELLID = Success")
 
 
-def serTime_(text, draw):
-    x, y = 10, 716
+def ci(text):
+    x, y = 453, 716  # object postition "command + T" in photoshop
     y -= 4
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
@@ -319,10 +288,11 @@ def serTime_(text, draw):
         (x, y), text, color, font=font
     )
 
+    return print("CI = Success")
 
-def level_(draw):
-    text = str(random.randrange(-60, -42))
-    x, y = 665, 716
+
+def serTime(text):
+    x, y = 10, 716  # object postition "command + T" in photoshop
     y -= 4
     color = (184, 184, 184)
     font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
@@ -334,3 +304,93 @@ def level_(draw):
     draw.text(
         (x, y), text, color, font=font
     )
+
+    return print("Time = Success")
+
+
+def level(text):
+    x, y = 665, 716  # object postition "command + T" in photoshop
+    y -= 4
+    color = (184, 184, 184)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
+
+    bg_color = (16, 16, 16)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    return print("Time = Success")
+
+
+def qual(text):
+    x, y = 777, 716  # object postition "command + T" in photoshop
+    y -= 4
+    color = (184, 184, 184)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 22)
+
+    bg_color = (16, 16, 16)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    return print("Time = Success")
+
+
+# ramdom
+rsrp_ = str(random.randrange(-68, -50))
+rsrp(rsrp_)
+
+rsrq_ = str(random.randrange(-11, -5))
+rsrq(rsrq_)
+
+snr_ = str(round(random.randrange(201, 294) * 0.1, 2))
+snr(snr_)
+
+rssi_ = str(random.randrange(-69, -61))
+rssi(rssi_)
+
+serving_ = str(random.randrange(10, 20))
+serving(serving_)
+
+time_ = f"{hour_}:{min_}:{str(random.randrange(10, 59))}"
+serTime(time_)
+
+level_ = str(random.randrange(-60, -42))
+level(level_)
+
+qual_ = str(random.randrange(-9, -6))
+qual(qual_)
+
+# LTE Only
+sector_number = cid_[-1]
+
+if len(cid_) == 1:
+    cid_ = cid_ + "   "
+
+if len(pci_) == 2:
+    pci_ = pci_ + "   "
+
+if len(pci_) == 1:
+    pci_ = pci_ + "      "
+
+battery(battery_)
+hour(hour_)
+min(min_)
+enb(enb_)
+cid(cid_)
+cellid(enb_)
+pci(pci_)
+ci(pci_)
+
+speed_downlink(speed_downlink_)
+speed_uplink(speed_uplink_)
+
+image.save(f"./Output/L1_S{sector_number}.png")
+time.sleep(2)
+speed_test_image.save(f"./Output/L1_S{sector_number}_Speedtest.png")
