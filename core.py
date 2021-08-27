@@ -341,6 +341,3 @@ A.enb_(enb, draw)
 A.guln_(guln, draw)
 A.tas_(hour, minute, second, draw)
 image.save("Output/Alarm.png")
-
-# Rtwp
-image = Image.open("lmt/")
