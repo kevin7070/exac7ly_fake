@@ -10,6 +10,7 @@ import functions.L40 as L40
 import functions.U1 as U1
 import functions.U8 as U8
 import functions.Alarm as A
+import functions.Rtwp as R
 
 d_hour = int(random.randrange(15, 19))
 d_minute = int(random.randrange(10, 59))
@@ -110,6 +111,7 @@ while True:
             L1.qual_(draw)
 
             image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
+            print()
 
             speed_test_image = Image.open(
                 f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
@@ -122,6 +124,17 @@ while True:
 
             speed_test_image.save(
                 f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+
+            # RTWP
+            image = Image.open(f"images/rtwp/L/LTE_1.png")
+            draw = ImageDraw.Draw(image)
+
+            R.enb_(enb, draw)
+            local_cell_id = int(cid) - 1
+            # R.pd_1(local_cell_id, draw)
+            # R.pd_2(local_cell_id, draw)
+
+            image.save(f"./Output/{local_cell_id}.png")
 
     elif band == "L3":
         for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
