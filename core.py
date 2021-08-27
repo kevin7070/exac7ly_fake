@@ -327,7 +327,7 @@ while True:
         break
 
 # Alarm
-image = Image.open("lmt/alarm/default.png")
+image = Image.open("images/alarm/default.png")
 draw = ImageDraw.Draw(image)
 
 guln_list = ['N']
@@ -341,3 +341,6 @@ A.enb_(enb, draw)
 A.guln_(guln, draw)
 A.tas_(hour, minute, second, draw)
 image.save("Output/Alarm.png")
+
+# Rtwp
+image = Image.open("lmt/")
