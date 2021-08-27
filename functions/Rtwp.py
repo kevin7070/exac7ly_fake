@@ -13,3 +13,19 @@ def enb_(text, draw):
     draw.text(
         (x, y), text, color, font=font
     )
+
+
+def pd_1(text, i, draw):
+    text = f"Cell Performance Monitoring({i})-[Detect Interference Local Cell ID:{text}]"
+    x, y = 203, 90
+    y -= 4
+    color = (82, 82, 82)
+    font = ImageFont.truetype('font/arial.ttf', 18)
+
+    bg_color = (238, 238, 238)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y + 4, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )

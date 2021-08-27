@@ -131,7 +131,7 @@ while True:
 
             R.enb_(enb, draw)
             local_cell_id = int(cid) - 1
-            # R.pd_1(local_cell_id, draw)
+            R.pd_1(local_cell_id, i, draw)
             # R.pd_2(local_cell_id, draw)
 
             image.save(f"./Output/{local_cell_id}.png")
