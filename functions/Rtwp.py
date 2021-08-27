@@ -29,3 +29,15 @@ def pd_1(text, i, draw):
     draw.text(
         (x, y), text, color, font=font
     )
+
+
+def pd_2(text, i, draw):
+    text = f"Cell Performance Monitoring({i})-[Detect Interference Local Cell ID:{text}]"
+    x, y = 50, 138
+    y -= 4
+    color = (82, 82, 82)
+    font = ImageFont.truetype('font/arial.ttf', 18)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
