@@ -41,3 +41,19 @@ def pd_2(text, i, draw):
     draw.text(
         (x, y), text, color, font=font
     )
+
+
+def time_(draw):
+    text = "14:33:44(459)"
+    x, y = 59, 274
+    y -= 4
+    color = (114, 114, 114)
+    font = ImageFont.truetype('font/arialn.ttf', 20)
+
+    bg_color = (255, 255, 255)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y + 4, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )

@@ -135,6 +135,7 @@ while True:
             pd_2_bg = Image.open("images/rtwp/pd_2_bg.png")
             image.paste(pd_2_bg, (45, 129))
             R.pd_2(local_cell_id, i, draw)
+            R.time_(draw)
 
             image.save(f"./Output/{local_cell_id}.png")
 
