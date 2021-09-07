@@ -120,7 +120,7 @@ def psc_(text, draw):
 
     bg_color = (40, 40, 40)
     w, h = font.getsize(text)
-    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+    draw.rectangle((x, y, x + w + 40, y + h), fill=bg_color)
 
     draw.text(
         (x, y), text, color, font=font
