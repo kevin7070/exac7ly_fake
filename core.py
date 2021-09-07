@@ -56,7 +56,6 @@ while True:
         sector_number = int(input(f"有幾多個 {band} Sector？\n："))
         continue
 
-
     todo_list = []
     for i in range(0, sector_number):
         battery = str(random.randrange(80, 87))
@@ -126,14 +125,17 @@ while True:
                 f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
 
             # RTWP
-            image = Image.open(f"images/rtwp/L/LTE_1.png")
+            lte_image_name = random.randint(1, 20)
+            image = Image.open(f"images/rtwp/L/RTWP ({lte_image_name}).png")
             draw = ImageDraw.Draw(image)
 
             R.enb_(enb, draw)
             local_cell_id = int(cid) - 1
+            pd_1_bg = Image.open("images/rtwp/pd_1_bg.png")
+            image.paste(pd_1_bg, (134, 58))
             R.pd_1(local_cell_id, i, draw)
             pd_2_bg = Image.open("images/rtwp/pd_2_bg.png")
-            image.paste(pd_2_bg, (45, 129))
+            image.paste(pd_2_bg, (35, 85))
             R.pd_2(local_cell_id, i, draw)
             R.time_(draw)
 
