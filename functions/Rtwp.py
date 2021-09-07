@@ -74,14 +74,15 @@ def other_(local_cell_id, one_one, one_three, draw):
     y -= 2
     color = (51, 51, 51)
     font = ImageFont.truetype('font/arial.ttf', 12)
-
     bg_color = (255, 255, 255)
     w, h = font.getsize(text)
-    draw.rectangle((x - 25, y - 2, x + w + 10, y + h), fill=bg_color)
 
-    draw.text(
-        (x, y), text, color, anchor="ma", font=font
-    )
+    for i in range(7):
+        draw.rectangle((x - 25, y - 2, x + w + 10, y + h), fill=bg_color)
+        draw.text(
+            (x, y), text, color, anchor="ma", font=font
+        )
+        y += 21
 
     # 1-1
     text = str(one_one)
@@ -89,14 +90,14 @@ def other_(local_cell_id, one_one, one_three, draw):
     y -= 2
     color = (51, 51, 51)
     font = ImageFont.truetype('font/arial.ttf', 12)
-
     bg_color = (255, 255, 255)
     w, h = font.getsize(text)
-    draw.rectangle((x - 25, y - 2, x + w + 10, y + h), fill=bg_color)
-
-    draw.text(
-        (x, y), text, color, anchor="ma", font=font
-    )
+    for i in range(16):
+        draw.rectangle((x - 25, y - 2, x + w + 10, y + h), fill=bg_color)
+        draw.text(
+            (x, y), text, color, anchor="ma", font=font
+        )
+        y += 21
 
     # 1-3
     text = str(one_three)
@@ -104,11 +105,11 @@ def other_(local_cell_id, one_one, one_three, draw):
     y -= 2
     color = (51, 51, 51)
     font = ImageFont.truetype('font/arial.ttf', 12)
-
     bg_color = (255, 255, 255)
     w, h = font.getsize(text)
-    draw.rectangle((x - 25, y - 2, x + w + 10, y + h), fill=bg_color)
-
-    draw.text(
-        (x, y), text, color, anchor="ma", font=font
-    )
+    for i in range(16):
+        draw.rectangle((x - 25, y - 2, x + w + 10, y + h), fill=bg_color)
+        draw.text(
+            (x, y), text, color, anchor="ma", font=font
+        )
+        y += 21
