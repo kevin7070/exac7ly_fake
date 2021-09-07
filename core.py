@@ -11,6 +11,7 @@ import functions.U1 as U1
 import functions.U8 as U8
 import functions.Alarm as A
 import functions.Rtwp as R
+import functions.U_Rtwp as UR
 
 d_hour = int(random.randrange(15, 19))
 d_minute = int(random.randrange(10, 59))
@@ -36,12 +37,12 @@ while True:
     while band not in bands:
         band = str.upper(input(
             """你想做邊個 Band？
-    L1  = LTE2100
-    L3  = LTE1800
-    L8  = LTE900
-    L40 = LTE2300
-    U1  = UMTS2100
-    U8  = UMTS900
+    L1  = LTE 2100
+    L3  = LTE 1800
+    L8  = LTE 900
+    L40 = LTE 2300
+    U8  = UMTS 900
+    U1  = UMTS 2100
 
     請輸入代號\n："""
         ))
@@ -85,11 +86,13 @@ while True:
             str(hms),
             enb,
             input_cid,
-            input_pci_psc
+            input_pci_psc,
+            str(i)
         ])
 
     if band == "L1":
-        for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
+        for (battery, hour, minute, second, hms, enb, cid, pci_psc, i) in todo_list:
+
             image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
             draw = ImageDraw.Draw(image)
             L1.battery_(battery, draw)
@@ -150,7 +153,8 @@ while True:
             image.save(f"./Output/{local_cell_id}.png")
 
     elif band == "L3":
-        for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
+        for (battery, hour, minute, second, hms, enb, cid, pci_psc, i) in todo_list:
+
             image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
             draw = ImageDraw.Draw(image)
             L3.battery_(battery, draw)
@@ -217,7 +221,8 @@ while True:
             image.save(f"./Output/{local_cell_id}.png")
 
     elif band == "L40":
-        for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
+        for (battery, hour, minute, second, hms, enb, cid, pci_psc, i) in todo_list:
+
             image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
             draw = ImageDraw.Draw(image)
             L40.battery_(battery, draw)
@@ -284,7 +289,8 @@ while True:
             image.save(f"./Output/{local_cell_id}.png")
 
     elif band == "L8":
-        for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
+        for (battery, hour, minute, second, hms, enb, cid, pci_psc, i) in todo_list:
+
             image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
             draw = ImageDraw.Draw(image)
             L8.battery_(battery, draw)
@@ -350,8 +356,67 @@ while True:
 
             image.save(f"./Output/{local_cell_id}.png")
 
+    elif band == "U8":
+        for (battery, hour, minute, second, hms, enb, cid, pci_psc, i) in todo_list:
+
+            image = Image.open(f"images/{band}_Images/" + "PSC" + ".png")
+            draw = ImageDraw.Draw(image)
+            U8.battery_(battery, draw)
+            U8.hour_(hour, draw)
+            U8.min_(minute, draw)
+            U8.cid_(cid, draw)
+            U8.psc_(pci_psc, draw)
+            U8.rsrp_(draw)
+            U8.gps_acc_(draw)
+            U8.hight_(draw)
+            U8.altitude_(draw)
+            U8.serving_(draw)
+            U8.longitude_(draw)
+            U8.latitude_(draw)
+            U8.cellid_(enb, draw)
+            U8.ci_(pci_psc, draw)
+            U8.serTime_(hms, draw)
+            U8.rnc_(draw)
+            U8.level_(draw)
+
+            image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
+
+            speed_test_image = Image.open(
+                f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
+            speed_test_draw = ImageDraw.Draw(speed_test_image)
+            U8.battery_(battery, speed_test_draw)
+            U8.hour_(hour, speed_test_draw)
+            U8.min_(minute, speed_test_draw)
+            U8.speed_downlink_(speed_test_draw)
+            U8.speed_uplink_(speed_test_draw)
+
+            speed_test_image.save(
+                f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+
+            # U_RTWP
+            umts_image_name = random.randint(1, 20)
+            image = Image.open(f"images/rtwp/U/RTWP ({umts_image_name}).png")
+            draw = ImageDraw.Draw(image)
+
+            UR.enb_(enb, draw)
+
+            u_pd_1_bg = Image.open("images/rtwp/u_pd_1_bg.png")
+            image.paste(u_pd_1_bg, (134, 58))
+            UR.pd_1(cid, i, draw)
+
+            u_pd_2_bg = Image.open("images/rtwp/u_pd_2_bg.png")
+            image.paste(u_pd_2_bg, (35, 85))
+            UR.pd_2(cid, i, draw)
+
+            UR.time_(hour, minute, draw)
+
+            UR.other_(cid, draw)
+
+            image.save(f"./Output/{cid}.png")
+
     elif band == "U1":
-        for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
+        for (battery, hour, minute, second, hms, enb, cid, pci_psc, i) in todo_list:
+
             image = Image.open(f"images/{band}_Images/" + "PSC" + ".png")
             draw = ImageDraw.Draw(image)
             U1.battery_(battery, draw)
@@ -388,41 +453,26 @@ while True:
             speed_test_image.save(
                 f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
 
-    elif band == "U8":
-        for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
-            image = Image.open(f"images/{band}_Images/" + "PSC" + ".png")
+            # U_RTWP
+            umts_image_name = random.randint(1, 20)
+            image = Image.open(f"images/rtwp/U/RTWP ({umts_image_name}).png")
             draw = ImageDraw.Draw(image)
-            U8.battery_(battery, draw)
-            U8.hour_(hour, draw)
-            U8.min_(minute, draw)
-            U8.cid_(cid, draw)
-            U8.psc_(pci_psc, draw)
-            U8.rsrp_(draw)
-            U8.gps_acc_(draw)
-            U8.hight_(draw)
-            U8.altitude_(draw)
-            U8.serving_(draw)
-            U8.longitude_(draw)
-            U8.latitude_(draw)
-            U8.cellid_(enb, draw)
-            U8.ci_(pci_psc, draw)
-            U8.serTime_(hms, draw)
-            U8.rnc_(draw)
-            U8.level_(draw)
 
-            image.save(f"./Output/{band}-{hour}-{minute}-{second}.png")
+            UR.enb_(enb, draw)
 
-            speed_test_image = Image.open(
-                f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
-            speed_test_draw = ImageDraw.Draw(speed_test_image)
-            U8.battery_(battery, speed_test_draw)
-            U8.hour_(hour, speed_test_draw)
-            U8.min_(minute, speed_test_draw)
-            U8.speed_downlink_(speed_test_draw)
-            U8.speed_uplink_(speed_test_draw)
+            u_pd_1_bg = Image.open("images/rtwp/u_pd_1_bg.png")
+            image.paste(u_pd_1_bg, (134, 58))
+            UR.pd_1(cid, i, draw)
 
-            speed_test_image.save(
-                f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+            u_pd_2_bg = Image.open("images/rtwp/u_pd_2_bg.png")
+            image.paste(u_pd_2_bg, (35, 85))
+            UR.pd_2(cid, i, draw)
+
+            UR.time_(hour, minute, draw)
+
+            UR.other_(cid, draw)
+
+            image.save(f"./Output/{cid}.png")
 
     if input(f"S{site_number}，仲有其他Band要做？(Y/N)\n：").strip().upper() != 'Y':
         break
