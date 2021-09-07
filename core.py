@@ -131,13 +131,21 @@ while True:
 
             R.enb_(enb, draw)
             local_cell_id = int(cid) - 1
+
             pd_1_bg = Image.open("images/rtwp/pd_1_bg.png")
             image.paste(pd_1_bg, (134, 58))
             R.pd_1(local_cell_id, i, draw)
+
             pd_2_bg = Image.open("images/rtwp/pd_2_bg.png")
             image.paste(pd_2_bg, (35, 85))
             R.pd_2(local_cell_id, i, draw)
+
             R.time_(hour, minute, draw)
+
+            # Table value for Cell ID, 1-1, and 1-3
+            one_one = 50
+            one_three = 10
+            R.other_(local_cell_id, one_one, one_three, draw)
 
             image.save(f"./Output/{local_cell_id}.png")
 
