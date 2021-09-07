@@ -191,6 +191,31 @@ while True:
             speed_test_image.save(
                 f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
 
+            # RTWP
+            lte_image_name = random.randint(1, 20)
+            image = Image.open(f"images/rtwp/L/RTWP ({lte_image_name}).png")
+            draw = ImageDraw.Draw(image)
+
+            R.enb_(enb, draw)
+            local_cell_id = int(cid) - 1
+
+            pd_1_bg = Image.open("images/rtwp/pd_1_bg.png")
+            image.paste(pd_1_bg, (134, 58))
+            R.pd_1(local_cell_id, i, draw)
+
+            pd_2_bg = Image.open("images/rtwp/pd_2_bg.png")
+            image.paste(pd_2_bg, (35, 85))
+            R.pd_2(local_cell_id, i, draw)
+
+            R.time_(hour, minute, draw)
+
+            # Table value for Cell ID, 1-1, and 1-3
+            one_one = 50
+            one_three = 8
+            R.other_(local_cell_id, one_one, one_three, draw)
+
+            image.save(f"./Output/{local_cell_id}.png")
+
     elif band == "L40":
         for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
             image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
@@ -233,6 +258,31 @@ while True:
             speed_test_image.save(
                 f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
 
+            # RTWP
+            lte_image_name = random.randint(1, 20)
+            image = Image.open(f"images/rtwp/L/RTWP ({lte_image_name}).png")
+            draw = ImageDraw.Draw(image)
+
+            R.enb_(enb, draw)
+            local_cell_id = int(cid) - 1
+
+            pd_1_bg = Image.open("images/rtwp/pd_1_bg.png")
+            image.paste(pd_1_bg, (134, 58))
+            R.pd_1(local_cell_id, i, draw)
+
+            pd_2_bg = Image.open("images/rtwp/pd_2_bg.png")
+            image.paste(pd_2_bg, (35, 85))
+            R.pd_2(local_cell_id, i, draw)
+
+            R.time_(hour, minute, draw)
+
+            # Table value for Cell ID, 1-1, and 1-3
+            one_one = 100
+            one_three = 18
+            R.other_(local_cell_id, one_one, one_three, draw)
+
+            image.save(f"./Output/{local_cell_id}.png")
+
     elif band == "L8":
         for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
             image = Image.open(f"images/{band}_Images/" + "PCI" + ".png")
@@ -274,6 +324,31 @@ while True:
 
             speed_test_image.save(
                 f"./Output/{band}-{hour}-{minute}-{second}-CT.png")
+
+            # RTWP
+            lte_image_name = random.randint(1, 20)
+            image = Image.open(f"images/rtwp/L/RTWP ({lte_image_name}).png")
+            draw = ImageDraw.Draw(image)
+
+            R.enb_(enb, draw)
+            local_cell_id = int(cid) - 1
+
+            pd_1_bg = Image.open("images/rtwp/pd_1_bg.png")
+            image.paste(pd_1_bg, (134, 58))
+            R.pd_1(local_cell_id, i, draw)
+
+            pd_2_bg = Image.open("images/rtwp/pd_2_bg.png")
+            image.paste(pd_2_bg, (35, 85))
+            R.pd_2(local_cell_id, i, draw)
+
+            R.time_(hour, minute, draw)
+
+            # Table value for Cell ID, 1-1, and 1-3
+            one_one = 25
+            one_three = 6
+            R.other_(local_cell_id, one_one, one_three, draw)
+
+            image.save(f"./Output/{local_cell_id}.png")
 
     elif band == "U1":
         for (battery, hour, minute, second, hms, enb, cid, pci_psc) in todo_list:
