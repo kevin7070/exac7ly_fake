@@ -19,7 +19,8 @@ d_minute = int(random.randrange(10, 59))
 # collect site number for eNB
 site_number = ""
 while len(site_number) < 3 or len(site_number) > 4:
-    site_number = str(input(f"請輸入Site No.\n："))
+    input_site_num = str(input(f"請輸入Site No.\n："))
+    site_number = input_site_num.strip()
     continue
 if len(site_number) == 3:
     enb = "600" + site_number
@@ -54,7 +55,7 @@ while True:
     # number of sectors
     sector_number = ""
     while sector_number == "":
-        sector_number = int(input(f"有幾多個 {band} Sector？\n："))
+        sector_number = int(input(f"{band}有幾多個Sector？\n："))
         continue
 
     todo_list = []
@@ -67,10 +68,10 @@ while True:
         input_pci_psc = ""
 
         while input_cid == "":
-            input_cid = str(input(f"請輸入Sector {i+1} CID、\n："))
+            input_cid = str(input(f"請輸入S{i+1}的CID\n："))
             continue
         while input_pci_psc == "":
-            input_pci_psc = str(input(f"請輸入S{i+1} PCI或PSC\n："))
+            input_pci_psc = str(input(f"請輸入S{i+1}的PCI 或PSC\n："))
             continue
 
         d_minute = d_minute + int(random.randrange(1, 3))
@@ -474,7 +475,7 @@ while True:
 
             image.save(f"./Output/{cid}.png")
 
-    if input(f"S{site_number}，仲有其他Band要做？(Y/N)\n：").strip().upper() != 'Y':
+    if input(f"S{site_number}，仲有其他Band要做？(y/n)\n：").strip().upper() != 'Y':
         break
 
 # Alarm
