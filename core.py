@@ -145,7 +145,7 @@ while True:
             L1.qual_(draw)
 
             image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}.png")
             print()
 
             speed_test_image = Image.open(
@@ -158,7 +158,7 @@ while True:
             L1.speed_uplink_(speed_test_draw)
 
             speed_test_image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}-CT.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}-CT.png")
 
             # RTWP
             lte_image_name = random.randint(1, 20)
@@ -215,7 +215,7 @@ while True:
             L3.latitude_(draw)
 
             image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}.png")
 
             speed_test_image = Image.open(
                 f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
@@ -227,7 +227,7 @@ while True:
             L3.speed_uplink_(speed_test_draw)
 
             speed_test_image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}-CT.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}-CT.png")
 
             # RTWP
             lte_image_name = random.randint(1, 20)
@@ -284,7 +284,7 @@ while True:
             L40.latitude_(draw)
 
             image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}.png")
 
             speed_test_image = Image.open(
                 f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
@@ -296,7 +296,7 @@ while True:
             L40.speed_uplink_(speed_test_draw)
 
             speed_test_image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}-CT.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}-CT.png")
 
             # RTWP
             lte_image_name = random.randint(1, 20)
@@ -353,7 +353,7 @@ while True:
             L8.latitude_(draw)
 
             image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}.png")
 
             speed_test_image = Image.open(
                 f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
@@ -365,7 +365,7 @@ while True:
             L8.speed_uplink_(speed_test_draw)
 
             speed_test_image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}-CT.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}-CT.png")
 
             # RTWP
             lte_image_name = random.randint(1, 20)
@@ -416,7 +416,7 @@ while True:
             U8.level_(draw)
 
             image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}.png")
 
             speed_test_image = Image.open(
                 f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
@@ -428,7 +428,7 @@ while True:
             U8.speed_uplink_(speed_test_draw)
 
             speed_test_image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}-CT.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}-CT.png")
 
             # U_RTWP
             umts_image_name = random.randint(1, 20)
@@ -477,7 +477,7 @@ while True:
             U1.level_(draw)
 
             image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}.png")
 
             speed_test_image = Image.open(
                 f"images/{band}_Images/" + str(random.randint(1, 10)) + ".png")
@@ -489,7 +489,7 @@ while True:
             U1.speed_uplink_(speed_test_draw)
 
             speed_test_image.save(
-                f"./Output/S{str(int(i)+1)}-{band}-{hour}-{minute}-{second}-CT.png")
+                f"./Output/S{i}-{band}-{hour}-{minute}-{second}-CT.png")
 
             # U_RTWP
             umts_image_name = random.randint(1, 20)
@@ -526,7 +526,7 @@ while True:
             N1.time_(hm, pci_draw)
             N1.n1pci_(pci, latitude, longitude, pci_draw)
             pci_img.save(
-                f"./Output/S{str(int(i)+1)}-{band}-NRPCI-{hour}-{minute}-{second}.jpg")
+                f"./Output/S{i}-{band}-NRPCI-{hour}-{minute}-{second}.jpg")
 
             # N1 lte pci
             lte_img = Image.open(f"images/nr/n1lte.jpg")
@@ -542,7 +542,7 @@ while True:
                 N1.n1ltepci_900_(pci, latitude, longitude, lte_draw)
 
             lte_img.save(
-                f"./Output/S{str(int(i)+1)}-{band}-NRLTEPCI-{hour}-{minute}-{second}.jpg")
+                f"./Output/S{i}-{band}-NRLTEPCI-{hour}-{minute}-{second}.jpg")
 
             # N1 speedtest
             rand_img = random.randint(1, 14)
@@ -553,7 +553,7 @@ while True:
             N1.time_(hm, speed_draw)
             N1.n1speed_(speed_draw)
             speed_img.save(
-                f"./Output/S{str(int(i)+1)}-{band}-SPEED-{hour}-{minute}-{second}.jpg")
+                f"./Output/S{i}-{band}-SPEED-{hour}-{minute}-{second}.jpg")
 
     if input(f"S{site_number}，仲有其他Band要做？(y/n)\n：").strip().upper() != 'Y':
         break
