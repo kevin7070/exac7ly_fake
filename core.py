@@ -514,7 +514,8 @@ while True:
 
             N1.time_(hm, pci_draw)
             N1.n1pci_(pci, latitude, longitude, pci_draw)
-            pci_img.save(f"./Output/S{i}-{band}-NRPCI-{hour}-{minute}-{second}.jpg")
+            pci_img.save(
+                f"./Output/S{i}-{band}-NRPCI-{hour}-{minute}-{second}.jpg")
 
             # N1 lte pci
             lte_img = Image.open(f"images/nr/n1lte.jpg")
@@ -528,7 +529,7 @@ while True:
                 N1.n1ltepci_(pci, latitude, longitude, lte_draw)
             else:
                 N1.n1ltepci_900_(pci, latitude, longitude, lte_draw)
-                
+
             lte_img.save(
                 f"./Output/S{i}-{band}-NRLTEPCI-{hour}-{minute}-{second}.jpg")
 
