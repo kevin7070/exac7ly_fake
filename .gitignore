@@ -2,3 +2,5 @@
 .DS_Store
 
 Output/
+
+functions/__pycache__/

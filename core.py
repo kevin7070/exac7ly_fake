@@ -545,11 +545,15 @@ while True:
 image = Image.open("images/alarm/default.png")
 draw = ImageDraw.Draw(image)
 
-guln_list = ['N']
+guln_list = []
+
 if ("L1" or "L3" or "L8" or "L40") in band_list:
     guln_list.insert(0, "L")
 if ("U1" or "U8") in band_list:
     guln_list.insert(0, "U")
+if "N1" in band_list:
+    guln_list.insert(0, "N")
+
 guln = ''.join(str(i) for i in guln_list)
 
 A.enb_(enb, draw)
