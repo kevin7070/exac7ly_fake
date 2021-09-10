@@ -77,10 +77,10 @@ while True:
                 input_pci_psc = str(input(f"請輸入S{i+1}的PCI 或PSC\n："))
                 continue
 
-            d_minute = d_minute + int(random.randrange(1, 3))
+            d_minute = d_minute + int(random.randrange(2, 4))
             if d_minute >= 60:
                 d_hour = d_hour + 1
-                d_minute = d_minute - 60
+                d_minute = d_minute - 50
 
             todo_list.append([
                 str(battery),
@@ -94,22 +94,21 @@ while True:
                 str(i)
             ])
         else:
-            battery = str(random.randrange(80, 87))
+            d_minute = d_minute + int(random.randrange(2, 4))
             d_second = int(random.randrange(10, 59))
             hm = str(f"{d_hour}:{d_minute}")
 
             input_pci = ""
             while input_pci == "":
-                input_pci = str(input(f"請輸入S{i+1}的PCI\n："))
+                input_pci = str(input(f"請輸入S{i+1} 的PCI\n："))
                 continue
 
-            d_minute = d_minute + int(random.randrange(1, 3))
+            d_minute = d_minute + int(random.randrange(2, 4))
             if d_minute >= 60:
                 d_hour = d_hour + 1
-                d_minute = d_minute - 60
+                d_minute = d_minute - 50
 
             todo_list.append([
-                str(battery),
                 str(d_hour),
                 str(d_minute),
                 str(d_second),
@@ -503,7 +502,7 @@ while True:
             image.save(f"./Output/{cid}.png")
 
     elif band == "N1":
-        for (battery, hour, minute, second, hm, pci, i) in todo_list:
+        for (hour, minute, second, hm, pci, i) in todo_list:
             latitude = "22.3184" + str(random.randint(10, 99))
             longitude = "114.1695" + str(random.randint(10, 99))
 
