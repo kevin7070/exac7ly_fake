@@ -33,7 +33,7 @@ band_list = []
 
 while True:
     # bands pool
-    bands = ['L1', 'L3', 'L8', 'L40', 'U1', 'U8', 'N1', 'N78']
+    bands = ['L1', 'L3', 'L8', 'L40', 'U8', 'U1', 'N1']
     # collect band
     band = "default"
     while band not in bands:
@@ -544,16 +544,29 @@ while True:
 image = Image.open("images/alarm/default.png")
 draw = ImageDraw.Draw(image)
 
+a = "U1"
+b = "U8"
+c = "L1"
+d = "L3"
+e = "L8"
+f = "L40"
+g = "N1"
+h = "N78"
+
 guln_list = []
+if a or b in band_list:
+    guln_list.append("U")
+    print(guln_list)
+if c or d or e or f in band_list:
+    guln_list.append("L")
+    print(guln_list)
+if g or h in band_list:
+    guln_list.append("N")
+    print(guln_list)
 
-if ("L1" or "L3" or "L8" or "L40") in band_list:
-    guln_list.insert(0, "L")
-if ("U1" or "U8") in band_list:
-    guln_list.insert(0, "U")
-if "N1" in band_list:
-    guln_list.insert(0, "N")
-
-guln = ''.join(str(i) for i in guln_list)
+guln = ""
+for i in guln_list:
+    guln = guln + i
 
 A.enb_(enb, draw)
 A.guln_(guln, draw)
