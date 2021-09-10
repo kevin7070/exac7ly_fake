@@ -12,6 +12,7 @@ import functions.U8 as U8
 import functions.Alarm as A
 import functions.Rtwp as R
 import functions.U_Rtwp as UR
+import functions.N1 as N1
 
 d_hour = int(random.randrange(15, 19))
 d_minute = int(random.randrange(10, 59))
@@ -32,7 +33,7 @@ band_list = []
 
 while True:
     # bands pool
-    bands = ['L1', 'L3', 'L8', 'L40', 'U1', 'U8']
+    bands = ['L1', 'L3', 'L8', 'L40', 'U1', 'U8', 'N1', 'N78']
     # collect band
     band = "default"
     while band not in bands:
@@ -44,6 +45,7 @@ while True:
     L40 = LTE 2300
     U8  = UMTS 900
     U1  = UMTS 2100
+    N1  = NR 2100
 
     請輸入代號\n："""
         ))
@@ -60,36 +62,61 @@ while True:
 
     todo_list = []
     for i in range(0, sector_number):
-        battery = str(random.randrange(80, 87))
-        d_second = int(random.randrange(10, 59))
-        hms = f"{d_hour}:{d_minute}:{d_second}"
+        if band[0] != 'N':
+            battery = str(random.randrange(80, 87))
+            d_second = int(random.randrange(10, 59))
+            hms = f"{d_hour}:{d_minute}:{d_second}"
 
-        input_cid = ""
-        input_pci_psc = ""
+            input_cid = ""
+            input_pci_psc = ""
 
-        while input_cid == "":
-            input_cid = str(input(f"請輸入S{i+1}的CID\n："))
-            continue
-        while input_pci_psc == "":
-            input_pci_psc = str(input(f"請輸入S{i+1}的PCI 或PSC\n："))
-            continue
+            while input_cid == "":
+                input_cid = str(input(f"請輸入S{i+1}的CID\n："))
+                continue
+            while input_pci_psc == "":
+                input_pci_psc = str(input(f"請輸入S{i+1}的PCI 或PSC\n："))
+                continue
 
-        d_minute = d_minute + int(random.randrange(1, 3))
-        if d_minute >= 60:
-            d_hour = d_hour + 1
-            d_minute = d_minute - 60
+            d_minute = d_minute + int(random.randrange(1, 3))
+            if d_minute >= 60:
+                d_hour = d_hour + 1
+                d_minute = d_minute - 60
 
-        todo_list.append([
-            str(battery),
-            str(d_hour),
-            str(d_minute),
-            str(d_second),
-            str(hms),
-            enb,
-            input_cid,
-            input_pci_psc,
-            str(i)
-        ])
+            todo_list.append([
+                str(battery),
+                str(d_hour),
+                str(d_minute),
+                str(d_second),
+                str(hms),
+                enb,
+                input_cid,
+                input_pci_psc,
+                str(i)
+            ])
+        else:
+            battery = str(random.randrange(80, 87))
+            d_second = int(random.randrange(10, 59))
+            hm = str(f"{d_hour}:{d_minute}")
+
+            input_pci = ""
+            while input_pci == "":
+                input_pci = str(input(f"請輸入S{i+1}的PCI\n："))
+                continue
+
+            d_minute = d_minute + int(random.randrange(1, 3))
+            if d_minute >= 60:
+                d_hour = d_hour + 1
+                d_minute = d_minute - 60
+
+            todo_list.append([
+                str(battery),
+                str(d_hour),
+                str(d_minute),
+                str(d_second),
+                str(hm),
+                input_pci,
+                str(i)
+            ])
 
     if band == "L1":
         for (battery, hour, minute, second, hms, enb, cid, pci_psc, i) in todo_list:
@@ -474,6 +501,42 @@ while True:
             UR.other_(cid, draw)
 
             image.save(f"./Output/{cid}.png")
+
+    elif band == "N1":
+        for (battery, hour, minute, second, hm, pci, i) in todo_list:
+            latitude = "22.3184" + str(random.randint(10, 99))
+            longitude = "114.1695" + str(random.randint(10, 99))
+
+            # N1 pci
+            pci_img = Image.open(f"images/nr/n1pci.jpg")
+            pci_draw = ImageDraw.Draw(pci_img)
+            nrtopbar = Image.open("images/nr/nrtopbar.png")
+            pci_img.paste(nrtopbar, (0, 0))
+
+            N1.time_(hm, pci_draw)
+            N1.n1pci_(pci, latitude, longitude, pci_draw)
+            pci_img.save(f"./Output/{band}-NRPCI-{hour}-{minute}-{second}.jpg")
+
+            # N1 lte pci
+            lte_img = Image.open(f"images/nr/n1lte.jpg")
+            lte_draw = ImageDraw.Draw(lte_img)
+            lte_img.paste(nrtopbar, (0, 0))
+
+            N1.time_(hm, lte_draw)
+            N1.n1ltepci_(pci, latitude, longitude, lte_draw)
+            lte_img.save(
+                f"./Output/{band}-NRLTEPCI-{hour}-{minute}-{second}.jpg")
+
+            # N1 speedtest
+            rand_img = random.randint(1, 14)
+            speed_img = Image.open(f"images/nr/calltest/nr ({rand_img}).jpg")
+            speed_draw = ImageDraw.Draw(speed_img)
+            speed_img.paste(nrtopbar, (0, 0))
+
+            N1.time_(hm, speed_draw)
+            N1.n1speed_(speed_draw)
+            speed_img.save(
+                f"./Output/{band}-SPEED-{hour}-{minute}-{second}.jpg")
 
     if input(f"S{site_number}，仲有其他Band要做？(y/n)\n：").strip().upper() != 'Y':
         break
