@@ -512,6 +512,7 @@ while True:
             pci_draw = ImageDraw.Draw(pci_img)
             nrtopbar = Image.open("images/nr/nrtopbar.png")
             pci_img.paste(nrtopbar, (0, 0))
+
             N1.time_(hm, pci_draw)
             N1.n1pci_(pci, latitude, longitude, pci_draw)
             pci_img.save(f"./Output/{band}-NRPCI-{hour}-{minute}-{second}.jpg")
@@ -520,17 +521,22 @@ while True:
             lte_img = Image.open(f"images/nr/n1lte.jpg")
             lte_draw = ImageDraw.Draw(lte_img)
             lte_img.paste(nrtopbar, (0, 0))
+
             N1.time_(hm, lte_draw)
             N1.n1ltepci_(pci, latitude, longitude, lte_draw)
-            lte_img.save(f"./Output/{band}-NRLTEPCI-{hour}-{minute}-{second}.jpg")
+            lte_img.save(
+                f"./Output/{band}-NRLTEPCI-{hour}-{minute}-{second}.jpg")
 
             # N1 speedtest
-            speed_img = Image.open(f"images/nr/calltest/nr (1).jpg")
+            rand_img = random.randint(1, 14)
+            speed_img = Image.open(f"images/nr/calltest/nr ({rand_img}).jpg")
             speed_draw = ImageDraw.Draw(speed_img)
             speed_img.paste(nrtopbar, (0, 0))
+
             N1.time_(hm, speed_draw)
             N1.n1speed_(speed_draw)
-            speed_img.save(f"./Output/{band}-SPEED-{hour}-{minute}-{second}.jpg")
+            speed_img.save(
+                f"./Output/{band}-SPEED-{hour}-{minute}-{second}.jpg")
 
     if input(f"S{site_number}，仲有其他Band要做？(y/n)\n：").strip().upper() != 'Y':
         break
