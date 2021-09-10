@@ -522,7 +522,13 @@ while True:
             lte_img.paste(nrtopbar, (0, 0))
 
             N1.time_(hm, lte_draw)
-            N1.n1ltepci_(pci, latitude, longitude, lte_draw)
+            lte_900 = "L8"
+            lte_1800 = "L3"
+            if (lte_900 and lte_1800) in band_list:
+                N1.n1ltepci_(pci, latitude, longitude, lte_draw)
+            else:
+                N1.n1ltepci_900_(pci, latitude, longitude, lte_draw)
+                
             lte_img.save(
                 f"./Output/S{i}-{band}-NRLTEPCI-{hour}-{minute}-{second}.jpg")
 

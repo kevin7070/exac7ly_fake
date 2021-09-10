@@ -225,3 +225,108 @@ def n1speed_(draw):
     draw.text(
         (x, y), text, color, font=font
     )
+
+
+def n1ltepci_900_(text, la, lo, draw):
+    x, y = 303, 1651
+    y -= 8
+    color = (117, 117, 117)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 34)
+
+    bg_color = (255, 255, 255)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w + 40, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    # la
+    text = la
+    x, y = 963, 932
+    y -= 8
+    color = (117, 117, 117)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 34)
+
+    bg_color = (255, 255, 255)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    # lo
+    text = lo
+    x, y = 963, 1034
+    y -= 8
+    color = (117, 117, 117)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 34)
+
+    bg_color = (255, 255, 255)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    # rsrp
+    text = str(round(random.uniform(-55.55, -65.65), 2))
+    x, y = 303, 1726
+    y -= 8
+    color = (117, 117, 117)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 34)
+
+    bg_color = (255, 255, 255)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    # rsrq
+    text = str(round(random.uniform(-3.01, -3.99), 2))
+    x, y = 303, 1801
+    y -= 8
+    color = (117, 117, 117)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 34)
+
+    bg_color = (255, 255, 255)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    # rssi
+    text = str(round(random.uniform(-13.01, -13.99), 2))
+    x, y = 303, 1876
+    y -= 8
+    color = (117, 117, 117)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 34)
+
+    bg_color = (255, 255, 255)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
+
+    # 900 earfcn
+    text = "3649"
+    x, y = 303, 1950
+    y -= 8
+    color = (117, 117, 117)
+    font = ImageFont.truetype('font/Roboto/Roboto-Regular.ttf', 34)
+
+    bg_color = (255, 255, 255)
+    w, h = font.getsize(text)
+    draw.rectangle((x, y, x + w, y + h), fill=bg_color)
+
+    draw.text(
+        (x, y), text, color, font=font
+    )
