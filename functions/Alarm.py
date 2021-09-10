@@ -30,7 +30,7 @@ def guln_(text, draw):
     )
 
 
-def tas_(hour, minute, second, draw):
+def tas_(hour, minute, second, default_date, draw):
     sl_default_ = datetime.timedelta(hours=8, minutes=0, seconds=0)
     sl_new = sl_default_ - \
         datetime.timedelta(hours=0, minutes=random.randint(
@@ -42,8 +42,6 @@ def tas_(hour, minute, second, draw):
         datetime.timedelta(hours=0, minutes=0, seconds=random.randint(28, 82))
     session_idle_timeout_ = "Session Idle Timeout: 0" + str(sit_new)
 
-    days = random.randrange(10, 30)
-    default_date = datetime.datetime.now() - datetime.timedelta(days=days)
     default_ne_time_ = 'NE Time: {dt.year}-{dt.month}-{dt.day} '.format(
         dt=default_date)
     ne_time_ = default_ne_time_ + f"{hour}:{minute}:{second}"
